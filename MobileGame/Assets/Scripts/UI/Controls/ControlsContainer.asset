@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70d73df205e3b7e49a465cbbc8d5900e, type: 3}
+  m_Name: ControlsContainer
+  m_EditorClassIdentifier: 
+  button: {fileID: 1523185762491718, guid: 45a27512a05570f42aabe39dced23d72, type: 2}
+  slider: {fileID: 1699478644115994, guid: 1ea4ef1b4b8c8684b883a0596b0ef30a, type: 2}
+  toggle: {fileID: 1883980880855938, guid: 60a080013d073d64984b369a4f2109e7, type: 2}
+  dropDown: {fileID: 1632287032667886, guid: c450a7f431dd2e94e9b009666676e426, type: 2}
