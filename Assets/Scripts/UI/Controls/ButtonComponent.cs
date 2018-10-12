@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class ButtonComponent : Button {
+public class ButtonComponent : Button
+{
 
-	public Text text;
+    public Text text;
 }
