@@ -10,9 +10,9 @@ public class CoreClickerSystem : Singleton<CoreClickerSystem>
     [Header("Glowne ustawienia rozgrywki")]
     public ClickerSettings clickerSettings;
     [HideInInspector]
-    public ClickPoints clickPoints = null; //klasa odpowiedzialna za punkty przez klikanie
+    public ClickPoints clickPointsManager = null; //klasa odpowiedzialna za punkty przez klikanie
     [HideInInspector]
-    public AutoPoints autoPoints = null; // klasa odpowiedzialna za punkty dodawane automatycznie
+    public AutoPoints autoPointsManager = null; // klasa odpowiedzialna za punkty dodawane automatycznie
 
     private int _gamePoints = 0; //aktualne punkty w grze
     public int GamePoints
@@ -25,6 +25,15 @@ public class CoreClickerSystem : Singleton<CoreClickerSystem>
 
     private bool _gameIsPlaying = false;
     private bool _pauseGame = false;
+
+    /// <summary>
+    /// Start is called on the frame when a script is enabled just before
+    /// any of the Update methods is called the first time.
+    /// </summary>
+    void Start()
+    {
+        StartNewGame();
+    }
 
     Coroutine autoPointsClock;
 
@@ -65,13 +74,13 @@ public class CoreClickerSystem : Singleton<CoreClickerSystem>
     private void ClearGameValues()
     {
         _gamePoints = 0;
-        clickPoints = new ClickPoints();
-        autoPoints = new AutoPoints();
+        clickPointsManager = new ClickPoints();
+        autoPointsManager = new AutoPoints();
     }
 
     #endregion
 
-    #region GameClock
+    #region Game's Clock
 
     private void StartClock()
     {
@@ -89,17 +98,17 @@ public class CoreClickerSystem : Singleton<CoreClickerSystem>
             AddAutoPoints();
         }
     }
-
     #endregion
 
 
     private void AddAutoPoints()
     {
-        _gamePoints += (int)(autoPoints.LiczbaPunktowWPuli * autoPoints.MnoznikPunktowWPuli);
+        Debug.Log("Dodano punkty: "+(autoPointsManager.LiczbaPunktowWPuli * autoPointsManager.MnoznikPunktowWPuli));
+        _gamePoints += (int)(autoPointsManager.LiczbaPunktowWPuli * autoPointsManager.MnoznikPunktowWPuli);
     }
     public void AddClickPoints() // TODO wykonywać po kliknięciu
     {
-        _gamePoints += (int)(clickPoints.LiczbaPunktowPrzyKliknieciu * clickPoints.MnoznikPunktowPrzyKliknieciu);
+        _gamePoints += (int)(clickPointsManager.LiczbaPunktowPrzyKliknieciu * clickPointsManager.MnoznikPunktowPrzyKliknieciu);
     }
 
     public void AddExtraPoints(int points) //mozliwosc dodania punktow extra

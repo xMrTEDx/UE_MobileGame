@@ -11,4 +11,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c99d044eed599d04b97a90d075e63faf, type: 3}
   m_Name: Clicker Settings
   m_EditorClassIdentifier: 
-  TimeInterval: 1
+  TimeInterval: 2
