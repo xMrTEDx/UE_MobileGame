@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
+[HelpURL("https://docs.google.com/document/d/17Km0x2scTWDCgSQ83Jro8NBujDE-mgXYAoTtgKHoR84/edit")]
 public class EmployeesSystem : Singleton<EmployeesSystem>
 {
     private float _trainingProductivity = 0; //wydajnosc ze szkolen (wspolne dla wszystkich pracownikow)
@@ -22,23 +23,23 @@ public class EmployeesSystem : Singleton<EmployeesSystem>
 
         }
     }
-    public void HireEmployee()
+    public bool HireEmployee()
     {
-		addEmployeeToBakery();
+        return addEmployeeToBakery();
     }
-    public void FireEmployee()
+    public bool FireEmployee()
     {
-        removeEmployeeFromBakery();
+        return removeEmployeeFromBakery();
     }
-    private void addEmployeeToBakery() //dodaje pracownika do piekarni ktora ma najmniej pracownikow zatrudnionych
+    private bool addEmployeeToBakery() //dodaje pracownika do piekarni ktora ma najmniej pracownikow zatrudnionych
     {
         Bakery bakeryToAddEmployee = FindBakeryWithLowestEmployeeNumber();
-        bakeryToAddEmployee.AddEmployee();
+        return bakeryToAddEmployee.AddEmployee();
     }
-    private void removeEmployeeFromBakery() //usuwa pracownika z piekarni ktora ma najwiecej pracownikow zatrudnionych
+    private bool removeEmployeeFromBakery() //usuwa pracownika z piekarni ktora ma najwiecej pracownikow zatrudnionych
     {
         Bakery bakeryToRemoveEmployee = FindBakeryWithHighestEmployeeNumber();
-        bakeryToRemoveEmployee.RemoveEmployee();
+        return bakeryToRemoveEmployee.RemoveEmployee();
     }
     private Bakery FindBakeryWithLowestEmployeeNumber()
     {

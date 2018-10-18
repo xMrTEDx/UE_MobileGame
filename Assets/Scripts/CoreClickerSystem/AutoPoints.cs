@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[HelpURL("https://docs.google.com/document/d/1ejpS-XV8fF2pCr_84tdIhLtNwRt5clxlDjzXzu49Xis/edit")]
 public class AutoPoints : MonoBehaviour
 {
     //pola

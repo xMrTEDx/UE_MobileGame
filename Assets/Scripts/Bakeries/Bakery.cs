@@ -4,6 +4,7 @@ using System.Linq;
 using UnityEngine;
 
 [RequireComponent(typeof(AutoPointsComponent))]
+[HelpURL("https://docs.google.com/document/d/17IFCpLcMuCVeaXV2bncfuURQZDPa9sldfySxvun7Oz4/edit")]
 public class Bakery : MonoBehaviour
 {
     private List<Employee> employeesInTheBakery = new List<Employee>();
@@ -23,25 +24,28 @@ public class Bakery : MonoBehaviour
         autoPointsManager = GetComponent<AutoPointsComponent>();
     }
 
-    public void AddEmployee()
+    public bool AddEmployee()
     {
         if (employeesInTheBakery.Count < BakeriesSystem.Instance.NumberOfWorkPlace)
         {
-			//TODO dodac pracownika na scenie
-			Employee newEmployee = new Employee();
+            //TODO dodac pracownika na scenie
+            Employee newEmployee = new Employee();
             employeesInTheBakery.Add(newEmployee);
             RecalculateAutoPoints();
-            
-        }
+
+            return true;
+        } else return false;
     }
-    public void RemoveEmployee()
+    public bool RemoveEmployee()
     {
         if (employeesInTheBakery.Count > 0)
         {
             Destroy(employeesInTheBakery.Last().gameObject);
             employeesInTheBakery.Remove(employeesInTheBakery.Last());
             RecalculateAutoPoints();
-        }
+
+            return true;
+        } else return false;
     }
     public void RecalculateAutoPoints() //przechodzi przez kazdego pracownika i wylicza ich produktywnosc
     {

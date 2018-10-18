@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[HelpURL("https://docs.google.com/document/d/1nVneCstEL6iFTZ2LvANYP0eKwtKoT6g98HiVb3uuNlM/edit")]
 public class ClickPoints : MonoBehaviour
     {
         // pola

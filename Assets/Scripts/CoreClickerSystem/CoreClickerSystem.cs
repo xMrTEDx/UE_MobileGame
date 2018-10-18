@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(ClickPoints), typeof(AutoPoints))]
+[HelpURL("https://docs.google.com/document/d/1yxwlSyVd2fW_dbF42w3urwPe8BSs63UJk-5A1IX4jJ8/edit")]
 public class CoreClickerSystem : Singleton<CoreClickerSystem>
 {
     [Header("Glowne ustawienia rozgrywki")]

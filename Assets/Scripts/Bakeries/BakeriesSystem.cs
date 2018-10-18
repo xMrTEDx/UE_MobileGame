@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+[HelpURL("https://docs.google.com/document/d/1e54SA8SEdzZv_b1uNvhh8DC1xmB66xVNYXVDytSeBYA/edit")]
 public class BakeriesSystem : Singleton<BakeriesSystem>
 {
 
@@ -36,7 +37,10 @@ public class BakeriesSystem : Singleton<BakeriesSystem>
     public void RemoveBakery()
     {
         if (_bakeries.Count > 1) //nie mozna usunac ostatniej piekarni
-            _bakeries.Remove(_bakeries.Last());
+            {
+                Destroy(_bakeries.Last().gameObject);
+                _bakeries.Remove(_bakeries.Last());
+            }
     }
 
 }
