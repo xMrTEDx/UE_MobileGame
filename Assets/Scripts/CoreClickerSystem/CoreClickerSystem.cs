@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-
+[RequireComponent(typeof(ClickPoints), typeof(AutoPoints))]
 public class CoreClickerSystem : Singleton<CoreClickerSystem>
 {
     [Header("Glowne ustawienia rozgrywki")]
@@ -32,6 +32,8 @@ public class CoreClickerSystem : Singleton<CoreClickerSystem>
     /// </summary>
     void Start()
     {
+        clickPointsManager = GetComponent<ClickPoints>();
+        autoPointsManager = GetComponent<AutoPoints>();
         StartNewGame();
     }
 
@@ -74,8 +76,9 @@ public class CoreClickerSystem : Singleton<CoreClickerSystem>
     private void ClearGameValues()
     {
         _gamePoints = 0;
-        clickPointsManager = new ClickPoints();
-        autoPointsManager = new AutoPoints();
+
+        clickPointsManager.ResetValues();
+        autoPointsManager.ResetValues();
     }
 
     #endregion
@@ -103,7 +106,7 @@ public class CoreClickerSystem : Singleton<CoreClickerSystem>
 
     private void AddAutoPoints()
     {
-        Debug.Log("Dodano punkty: "+(autoPointsManager.LiczbaPunktowWPuli * autoPointsManager.MnoznikPunktowWPuli));
+        Debug.Log("Dodano punkty: " + (autoPointsManager.LiczbaPunktowWPuli * autoPointsManager.MnoznikPunktowWPuli));
         _gamePoints += (int)(autoPointsManager.LiczbaPunktowWPuli * autoPointsManager.MnoznikPunktowWPuli);
     }
     public void AddClickPoints() // TODO wykonywać po kliknięciu

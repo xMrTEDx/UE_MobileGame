@@ -47,5 +47,10 @@ public class ClickPoints : MonoBehaviour
             yield return new WaitForSeconds(czasTrwaniaSekund);
             DodajMnoznikPunktow(-mnoznik);
         }
+        public void ResetValues()
+        {
+            _liczbaPunktowPrzyKliknieciu = 1;
+            _mnoznikPunktowPrzyKliknieciu = 1;
+        }
 
     }

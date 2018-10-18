@@ -5,8 +5,8 @@ using UnityEngine;
 public class AutoPoints : MonoBehaviour
 {
     //pola
-    private int _liczbaPunktowWPuli = 0;
-    public int LiczbaPunktowWPuli
+    private float _liczbaPunktowWPuli = 0;
+    public float LiczbaPunktowWPuli
     {
         get { return _liczbaPunktowWPuli; }
     }
@@ -18,11 +18,11 @@ public class AutoPoints : MonoBehaviour
     }
 
     //metody
-    public void DodajLiczbePunktow(int liczbaDodana)
+    public void DodajLiczbePunktow(float liczbaDodana)
     {
         _liczbaPunktowWPuli += liczbaDodana;
     }
-    public void DodajLiczbePunktow(int liczbaDodana, int czasTrwaniaSekund)
+    public void DodajLiczbePunktow(float liczbaDodana, int czasTrwaniaSekund)
     {
         StartCoroutine(AddPointsTemporarily(liczbaDodana, czasTrwaniaSekund));
     }
@@ -58,7 +58,7 @@ public class AutoPoints : MonoBehaviour
     }
 
 
-    private IEnumerator AddPointsTemporarily(int liczbaDodana, int czasTrwaniaSekund)
+    private IEnumerator AddPointsTemporarily(float liczbaDodana, int czasTrwaniaSekund)
     {
         DodajLiczbePunktow(liczbaDodana);
         yield return new WaitForSeconds(czasTrwaniaSekund);
@@ -69,5 +69,10 @@ public class AutoPoints : MonoBehaviour
         DodajMnoznikPunktow(mnoznik);
         yield return new WaitForSeconds(czasTrwaniaSekund);
         DodajMnoznikPunktow(-mnoznik);
+    }
+    public void ResetValues()
+    {
+        _liczbaPunktowWPuli = 0;
+        _mnoznikPunktowWPuli = 1;
     }
 }
