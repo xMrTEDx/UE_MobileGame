@@ -115,7 +115,7 @@ public class CoreClickerSystem : Singleton<CoreClickerSystem>
         _gamePoints += clickPointsManager.LiczbaPunktowPrzyKliknieciu * clickPointsManager.MnoznikPunktowPrzyKliknieciu;
     }
 
-    public void AddExtraPoints(int points) //mozliwosc dodania punktow extra
+    public void AddExtraPoints(float points) //mozliwosc dodania punktow extra
     {
         _gamePoints += points;
     }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ExtraPointsModifier : MonoBehaviour {
 
-	public void AddExtraPoints(int value)
+	public void AddExtraPoints(float value)
 	{
 		CoreClickerSystem.Instance.AddExtraPoints(value);
 	}
