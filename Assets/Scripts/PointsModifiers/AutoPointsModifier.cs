@@ -24,6 +24,8 @@ public class AutoPointsModifier : MonoBehaviour
         }
     }
 
+
+    #region points operations
     public void AddAutoPoints(float addedValue) //dodanie do puli dodawanej co interwal
     {
         CoreClickerSystem.Instance.autoPointsManager.DodajLiczbePunktow(addedValue);
@@ -38,15 +40,17 @@ public class AutoPointsModifier : MonoBehaviour
     public void ChangeAutoPointsValue(float newValue) //zmiana puli dodawanej co interwal
     {
         AddAutoPoints(newValue - _autoPoints);
-        _autoPoints = newValue;
     }
     public void ChangeAutoPointsValue(float newValue, int time) //zmiana puli dodawanej co interwal (czasowo)
     {
-        AddAutoPoints(newValue - _autoPoints, time);
-        // nie zwiększam _autoPoints bo i tak zaraz wróci do poprzedniego stanu        
+        AddAutoPoints(newValue - _autoPoints, time);     
     }
+    #endregion
 
 
+
+
+    #region multipler operations
     public void AddPointsMultipler(float multiplingValue) //dodanie do mnoznika czasowy (przemnozenie)
     {
         CoreClickerSystem.Instance.autoPointsManager.DodajMnoznikPunktow(multiplingValue);
@@ -60,14 +64,12 @@ public class AutoPointsModifier : MonoBehaviour
     public void ChangePointsMultipler(float newValue) //zmiana mnoznika
     {
         AddPointsMultipler(newValue / _globalPointsMultipler);
-        _globalPointsMultipler = newValue;
     }
     public void ChangePointsMultipler(float newValue, int time) //zmiana mnoznika czasowa
     {
         AddPointsMultipler(newValue / _globalPointsMultipler, time);
-        // nie zmieniam _globalPointsMultipler bo i tak zaraz wróci do poprzedniego stanu
     }
-
+    #endregion
 
 }
 
