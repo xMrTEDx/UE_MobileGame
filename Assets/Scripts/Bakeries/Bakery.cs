@@ -7,6 +7,7 @@ using UnityEngine;
 [HelpURL("https://docs.google.com/document/d/17IFCpLcMuCVeaXV2bncfuURQZDPa9sldfySxvun7Oz4/edit")]
 public class Bakery : MonoBehaviour
 {
+    //skrypt dołączony jako komponent do każdej piekarni
     private List<Employee> employeesInTheBakery = new List<Employee>();
     public List<Employee> EmployeesInTheBakery
     {

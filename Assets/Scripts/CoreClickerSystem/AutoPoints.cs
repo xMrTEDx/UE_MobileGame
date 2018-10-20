@@ -5,6 +5,8 @@ using UnityEngine;
 [HelpURL("https://docs.google.com/document/d/1ejpS-XV8fF2pCr_84tdIhLtNwRt5clxlDjzXzu49Xis/edit")]
 public class AutoPoints : MonoBehaviour
 {
+    //przechowuje sume wszystkich punktow dodawanych co kazdy cykl zegara
+
     //pola
     private float _liczbaPunktowWPuli = 0;
     public float LiczbaPunktowWPuli
@@ -37,26 +39,27 @@ public class AutoPoints : MonoBehaviour
         StartCoroutine(AddMultiplerTemporarily(mnoznik, czasTrwaniaSekund));
     }
 
+    // metody nie uzywane z uwagi na to iz z tego skryptu korzysta "AutoPointsModifier" ktory reprezentuje kazdy obiekt w grze ktory przynosi punkty automatyczne
+    // i kazdy taki obiekt przechowuję swoją liczbę punktów jaką przynosi, więc przy zmianie jago punktów sam wylicza różnice z nowej i poprzedniej wartości
+    
+    // public void ZmienLiczbePunktow(int liczbaNowa, int liczbaPoprzednia)
+    // {
+    //     DodajLiczbePunktow(liczbaNowa - liczbaPoprzednia);
+    // }
+    // public void ZmienLiczbePunktow(int liczbaNowa, int liczbaPoprzednia, int czasTrwaniaSekund)
+    // {
+    //     DodajLiczbePunktow(liczbaNowa - liczbaPoprzednia, czasTrwaniaSekund);
+    // }
 
 
-    public void ZmienLiczbePunktow(int liczbaNowa, int liczbaPoprzednia)
-    {
-        DodajLiczbePunktow(liczbaNowa - liczbaPoprzednia);
-    }
-    public void ZmienLiczbePunktow(int liczbaNowa, int liczbaPoprzednia, int czasTrwaniaSekund)
-    {
-        DodajLiczbePunktow(liczbaNowa - liczbaPoprzednia, czasTrwaniaSekund);
-    }
-
-
-    public void ZmienMnoznikPunktow(float mnoznikNowy, float mnoznikPoprzedni)
-    {
-        DodajMnoznikPunktow(mnoznikNowy / mnoznikPoprzedni);
-    }
-    public void ZmienMnoznikPunktow(float mnoznikNowy, float mnoznikPoprzedni, int czasTrwaniaSekund)
-    {
-        DodajMnoznikPunktow(mnoznikNowy / mnoznikPoprzedni, czasTrwaniaSekund);
-    }
+    // public void ZmienMnoznikPunktow(float mnoznikNowy, float mnoznikPoprzedni)
+    // {
+    //     DodajMnoznikPunktow(mnoznikNowy / mnoznikPoprzedni);
+    // }
+    // public void ZmienMnoznikPunktow(float mnoznikNowy, float mnoznikPoprzedni, int czasTrwaniaSekund)
+    // {
+    //     DodajMnoznikPunktow(mnoznikNowy / mnoznikPoprzedni, czasTrwaniaSekund);
+    // }
 
 
     private IEnumerator AddPointsTemporarily(float liczbaDodana, int czasTrwaniaSekund)

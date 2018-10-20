@@ -3,6 +3,8 @@
 [HelpURL("https://docs.google.com/document/d/1GmD-UPM0SOgiVftxFA0Hn5nTW3_RDDbCUoN2FU8n1Rc/edit")]
 public class AutoPointsModifier : MonoBehaviour
 {
+    //reprezentuje kazdy obiekt w grze tworzący przychody w postaciu punktów co cykl zegara gry (domyślnie co 2 sekundy)
+    //przechowuje liczbe punktów które dodaje oraz operacje do zmiany ilości tychże punktów
 
     private float _autoPoints = 0; // points added every interval
     private float _globalPointsMultipler = 1; // global points multipler
@@ -30,15 +32,18 @@ public class AutoPointsModifier : MonoBehaviour
     public void AddAutoPoints(float addedValue, int time) //dodanie do puli dodawanej co interwal (czasowo)
     {
         CoreClickerSystem.Instance.autoPointsManager.DodajLiczbePunktow(addedValue, time);
+        // nie zwiększam _autoPoints bo i tak zaraz wróci do poprzedniego stanu       
     }
 
     public void ChangeAutoPointsValue(float newValue) //zmiana puli dodawanej co interwal
     {
         AddAutoPoints(newValue - _autoPoints);
+        _autoPoints = newValue;
     }
     public void ChangeAutoPointsValue(float newValue, int time) //zmiana puli dodawanej co interwal (czasowo)
     {
         AddAutoPoints(newValue - _autoPoints, time);
+        // nie zwiększam _autoPoints bo i tak zaraz wróci do poprzedniego stanu        
     }
 
 
@@ -47,17 +52,20 @@ public class AutoPointsModifier : MonoBehaviour
         CoreClickerSystem.Instance.autoPointsManager.DodajMnoznikPunktow(multiplingValue);
         _globalPointsMultipler *= multiplingValue;
     }
-    public void AddPointsMultipler(float multiplingValue, int time) //dodanie do mnoznika czasowy (przemnozenie) - czasowo
+    public void AddPointsMultipler(float multiplingValue, int time) //dodanie do mnoznika (przemnozenie) - czasowo
     {
         CoreClickerSystem.Instance.autoPointsManager.DodajMnoznikPunktow(multiplingValue, time);
+        // nie zmieniam _globalPointsMultipler bo i tak zaraz wróci do poprzedniego stanu
     }
     public void ChangePointsMultipler(float newValue) //zmiana mnoznika
     {
         AddPointsMultipler(newValue / _globalPointsMultipler);
+        _globalPointsMultipler = newValue;
     }
     public void ChangePointsMultipler(float newValue, int time) //zmiana mnoznika czasowa
     {
         AddPointsMultipler(newValue / _globalPointsMultipler, time);
+        // nie zmieniam _globalPointsMultipler bo i tak zaraz wróci do poprzedniego stanu
     }
 
 
