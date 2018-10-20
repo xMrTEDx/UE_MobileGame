@@ -15,4 +15,11 @@ public class BakeriesModifier : MonoBehaviour {
 			//TODO dodać pieniądze do puli
 		}
 	}
+
+
+    public void UpgradeBakery()
+    {
+        //TODO sprawdzic czy jest hajs
+        BakeriesSystem.Instance.UpgradeBakery();
+    }
 }
