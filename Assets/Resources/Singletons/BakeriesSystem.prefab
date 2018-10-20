@@ -51,3 +51,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 249c1233265db7c4ba61b5902698a529, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bakeriesAsset: {fileID: 11400000, guid: cb99fa63edd50594cb1df7b912a75fd4, type: 2}
+  bakeriesParent: {fileID: 0}

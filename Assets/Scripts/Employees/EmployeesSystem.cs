@@ -6,6 +6,8 @@ using System.Linq;
 [HelpURL("https://docs.google.com/document/d/17Km0x2scTWDCgSQ83Jro8NBujDE-mgXYAoTtgKHoR84/edit")]
 public class EmployeesSystem : Singleton<EmployeesSystem>
 {
+    public EmployeesAsset employeeAsset;
+    public Transform employeesParent;
     private float _trainingProductivity = 0; //wydajnosc ze szkolen (wspolne dla wszystkich pracownikow)
     public float TrainingProductivity
     {
@@ -23,6 +25,7 @@ public class EmployeesSystem : Singleton<EmployeesSystem>
 
         }
     }
+    public EmployeesSettings employeesSettings;
     public bool HireEmployee()
     {
         return addEmployeeToBakery();
@@ -34,12 +37,23 @@ public class EmployeesSystem : Singleton<EmployeesSystem>
     private bool addEmployeeToBakery() //dodaje pracownika do piekarni ktora ma najmniej pracownikow zatrudnionych
     {
         Bakery bakeryToAddEmployee = FindBakeryWithLowestEmployeeNumber();
-        return bakeryToAddEmployee.AddEmployee();
+        if(bakeryToAddEmployee.CanAddEmployee())
+        {
+            GameObject newEmployee = AddEmployeeToScene();
+            if(newEmployee)
+            return bakeryToAddEmployee.AddEmployee(newEmployee.GetComponent<Employee>());
+        }
+        return false;
+        
     }
     private bool removeEmployeeFromBakery() //usuwa pracownika z piekarni ktora ma najwiecej pracownikow zatrudnionych
     {
         Bakery bakeryToRemoveEmployee = FindBakeryWithHighestEmployeeNumber();
         return bakeryToRemoveEmployee.RemoveEmployee();
+    }
+    public GameObject AddEmployeeToScene()
+    {
+        return Instantiate(employeeAsset.EmployeeGameObject,employeesParent);
     }
     private Bakery FindBakeryWithLowestEmployeeNumber()
     {
@@ -50,7 +64,10 @@ public class EmployeesSystem : Singleton<EmployeesSystem>
         for (int i = 0; i < bakeries.Count; i++)
         {
             if (bakeries[i].EmployeesInTheBakery.Count < maxIntValue)
-                index = i;
+                {
+                    maxIntValue = bakeries[i].EmployeesInTheBakery.Count;
+                    index = i;
+                }
         }
         return bakeries[index];
     }
@@ -63,7 +80,10 @@ public class EmployeesSystem : Singleton<EmployeesSystem>
         for (int i = 0; i < bakeries.Count; i++)
         {
             if (bakeries[i].EmployeesInTheBakery.Count > minIntValue)
-                index = i;
+                {
+                    minIntValue = bakeries[i].EmployeesInTheBakery.Count;
+                    index = i;
+                }
         }
         return bakeries[index];
     }

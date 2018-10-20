@@ -9,14 +9,14 @@ using UnityEngine.Events;
 public class CoreClickerSystem : Singleton<CoreClickerSystem>
 {
     [Header("Glowne ustawienia rozgrywki")]
-    public ClickerSettings clickerSettings;
+    public ClickerSettings clickerSettings; //asset przechowujacy ustawienia
     [HideInInspector]
     public ClickPoints clickPointsManager = null; //klasa odpowiedzialna za punkty przez klikanie
     [HideInInspector]
     public AutoPoints autoPointsManager = null; // klasa odpowiedzialna za punkty dodawane automatycznie
 
-    private int _gamePoints = 0; //aktualne punkty w grze
-    public int GamePoints
+    private float _gamePoints = 0; //aktualne punkty w grze
+    public float GamePoints
     {
         get
         {
@@ -108,11 +108,11 @@ public class CoreClickerSystem : Singleton<CoreClickerSystem>
     private void AddAutoPoints()
     {
         Debug.Log("Dodano punkty: " + (autoPointsManager.LiczbaPunktowWPuli * autoPointsManager.MnoznikPunktowWPuli));
-        _gamePoints += (int)(autoPointsManager.LiczbaPunktowWPuli * autoPointsManager.MnoznikPunktowWPuli);
+        _gamePoints += autoPointsManager.LiczbaPunktowWPuli * autoPointsManager.MnoznikPunktowWPuli;
     }
-    public void AddClickPoints() // TODO wykonywać po kliknięciu
+    public void AddClickPoints() //wykonywać po kliknięciu
     {
-        _gamePoints += (int)(clickPointsManager.LiczbaPunktowPrzyKliknieciu * clickPointsManager.MnoznikPunktowPrzyKliknieciu);
+        _gamePoints += clickPointsManager.LiczbaPunktowPrzyKliknieciu * clickPointsManager.MnoznikPunktowPrzyKliknieciu;
     }
 
     public void AddExtraPoints(int points) //mozliwosc dodania punktow extra

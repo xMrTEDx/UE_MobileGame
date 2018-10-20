@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainWindow : MonoBehaviour {
 
 	public void StartGame()
 	{
-
+		SceneManager.LoadScene("Clicker");
 	}
 	public void ExitGame()
 	{

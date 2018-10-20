@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-[RequireComponent(typeof(AutoPointsComponent))]
+[RequireComponent(typeof(AutoPointsModifier))]
 [HelpURL("https://docs.google.com/document/d/17IFCpLcMuCVeaXV2bncfuURQZDPa9sldfySxvun7Oz4/edit")]
 public class Bakery : MonoBehaviour
 {
@@ -15,28 +15,28 @@ public class Bakery : MonoBehaviour
             return employeesInTheBakery;
         }
     }
-
-    public EmployeesSettings employeesSettings;
-    AutoPointsComponent autoPointsManager;
+    AutoPointsModifier autoPointsModifier;
 
     void Awake()
     {
-        autoPointsManager = GetComponent<AutoPointsComponent>();
+        autoPointsModifier = GetComponent<AutoPointsModifier>();
     }
 
-    public bool AddEmployee()
+    public bool CanAddEmployee() //zwraca czy jest miejce w piekarni
+    {
+        return employeesInTheBakery.Count < BakeriesSystem.Instance.NumberOfWorkPlace ? true : false;
+    }
+    public bool AddEmployee(Employee employee) //dodaje pracownika do piekarni (pracownik podany w parametrze)
     {
         if (employeesInTheBakery.Count < BakeriesSystem.Instance.NumberOfWorkPlace)
         {
-            //TODO dodac pracownika na scenie
-            Employee newEmployee = new Employee();
-            employeesInTheBakery.Add(newEmployee);
+            employeesInTheBakery.Add(employee);
             RecalculateAutoPoints();
 
             return true;
         } else return false;
     }
-    public bool RemoveEmployee()
+    public bool RemoveEmployee() //usuwa ostatniego pracownika z piekarni
     {
         if (employeesInTheBakery.Count > 0)
         {
@@ -47,14 +47,23 @@ public class Bakery : MonoBehaviour
             return true;
         } else return false;
     }
+    public void DestroyBakery() //usuwa wszystkich pracownikow i niszczy piekarnie
+    {
+        int EmployeesCount = employeesInTheBakery.Count;
+        for(int i=0;i<EmployeesCount;i++)
+        {
+            RemoveEmployee();
+        }
+        Destroy(gameObject);
+    }
     public void RecalculateAutoPoints() //przechodzi przez kazdego pracownika i wylicza ich produktywnosc
     {
         float newAutoPointsValue = 0;
         foreach (var employee in employeesInTheBakery)
         {
-            newAutoPointsValue += employeesSettings.maxPoints * ((employee.ExperienceProductivity + EmployeesSystem.Instance.TrainingProductivity) / 100); //max points * productivity
+            newAutoPointsValue += EmployeesSystem.Instance.employeesSettings.maxPoints * ((employee.ExperienceProductivity + EmployeesSystem.Instance.TrainingProductivity) / 100); //max points * productivity
         }
-        autoPointsManager.ChangeAutoPointsValue(newAutoPointsValue);
+        autoPointsModifier.ChangeAutoPointsValue(newAutoPointsValue);
 
     } //TODO wykonywac po szkoleniach i co jakis czas po zdobywaniu doswiadczenia w pracy
 

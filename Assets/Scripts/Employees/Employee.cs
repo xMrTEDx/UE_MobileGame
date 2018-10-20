@@ -22,7 +22,7 @@ public class Employee : MonoBehaviour
             else _experienceProductivity = value;
         }
     }
-    public Employee() //konstruktor, przy tworzeniu nowego pracownika losuje jego wydajnosc z doswiadczenia
+    void Awake() //losuje wydajnosc z doswiadczenia po dodaniu pracownika na scene
     {
         _experienceProductivity = UnityEngine.Random.Range(10, 20);
     }

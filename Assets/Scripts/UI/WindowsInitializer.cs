@@ -44,7 +44,7 @@ public class WindowsInitializer : MonoBehaviour
             }
             window.gameObject.SetActive(false); //hide all windows
         }
-        windows[0].gameObject.SetActive(true); //show main window
+        windows[0].EnableWindow(); //show main window
     }
     public void AddWindowToStack(string windowID)
     {

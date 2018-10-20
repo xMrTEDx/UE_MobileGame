@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 [HelpURL("https://docs.google.com/document/d/1GmD-UPM0SOgiVftxFA0Hn5nTW3_RDDbCUoN2FU8n1Rc/edit")]
-public class AutoPointsComponent : MonoBehaviour
+public class AutoPointsModifier : MonoBehaviour
 {
 
     private float _autoPoints = 0; // points added every interval

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -19,6 +20,11 @@ public class PointsVisualizer : MonoBehaviour {
 	/// </summary>
 	void Update()
 	{
-		text.text = "Punkty: "+CoreClickerSystem.Instance.GamePoints.ToString();
+		text.text = "Kasa: "+GetPointsValue() +" zł";
+	}
+	string GetPointsValue()
+	{
+		double points = Math.Round (CoreClickerSystem.Instance.GamePoints, 2);
+		return points.ToString("N2");
 	}
 }

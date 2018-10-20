@@ -51,3 +51,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8885df03e4e28ef47a06e03b04fc8744, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  employeeAsset: {fileID: 11400000, guid: 3b0c8734dea05aa4b97dfc35b3c05e9e, type: 2}
+  employeesParent: {fileID: 0}
+  employeesSettings: {fileID: 11400000, guid: cc3d4f70a871fc844b40f9e7a6e0ad79, type: 2}
