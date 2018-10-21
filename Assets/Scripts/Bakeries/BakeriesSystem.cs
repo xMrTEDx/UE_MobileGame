@@ -7,7 +7,7 @@ using UnityEngine;
 public class BakeriesSystem : Singleton<BakeriesSystem>
 {
     public BakeriesAsset bakeriesAsset; //asset przechowujacy gameObject piekarni
-    public Transform bakeriesParent; //Transform pod ktorym (w hierarchi) sa tworzeni pracownicy na scenie
+    public Transform bakeriesParent; //Transform pod ktorym (w hierarchi) są tworzone piekarnie na scenie
 
     List<Bakery> _bakeries = new List<Bakery>(); //lista wszystkich piekarn
         
