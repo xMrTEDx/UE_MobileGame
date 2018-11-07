@@ -9,6 +9,15 @@ public class EmployeesSystem : Singleton<EmployeesSystem>
     public EmployeesAsset employeeAsset;
     public Transform employeesParent;
     private float _trainingProductivity = 0; //wydajnosc ze szkolen (wspolne dla wszystkich pracownikow)
+    private byte _employeeLevel = 0;
+
+    public byte EmployeeLevel
+    {
+        get
+        {
+            return _employeeLevel;
+        }
+    }
     public float TrainingProductivity
     {
         get
@@ -86,6 +95,40 @@ public class EmployeesSystem : Singleton<EmployeesSystem>
                 }
         }
         return bakeries[index];
+    }
+
+
+    //Adds productivity points to every employee
+    public void UpgradeEmployees()
+    {
+        switch (_employeeLevel)
+        {
+            case 0:
+                _trainingProductivity += 10;
+                _employeeLevel++;
+                break;
+            case 1:
+                _trainingProductivity += 10;
+                _employeeLevel++;
+                break;
+            case 2:
+                _trainingProductivity += 10;
+                _employeeLevel++;
+                break;
+            case 3:
+                _trainingProductivity += 10;
+                _employeeLevel++;
+                break;
+            case 4:
+                _trainingProductivity += 10;
+                _employeeLevel++;
+                break;
+            case 6:
+                _trainingProductivity += 10;
+                _employeeLevel++;
+                break;
+
+        }
     }
 
 
