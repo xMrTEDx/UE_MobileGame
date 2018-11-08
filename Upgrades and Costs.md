@@ -1,0 +1,40 @@
+Koszty założenia własnej działalności (sp. z o. o.):
+- rejestracja w KRS - 500 zł
+- wpis w Monitorze Sądowym i Gospodarczym - 100 zł
+- minimalny kapitał zakładowy - 5000 zł
+- koszta notarialne - 1000 zł
+
+Koszta działalności gospodarczej:
+- ZUS - pierwsze 2 lata 250, potem 690 (tylko za nas)
+  - umowa o pracę:
+    - koszt każdego pracownika przy 1500 zł netto:
+      - ubezpieczenie emerytalne - 201 zł
+      - ubezpieczenie rentowe - 31 zł
+      - ubezpieczenie chorobowe - 50 zł
+      - ubezpieczenie zdrowotne - 160 zł
+      - zaliczka na podatek - 116 zł
+      - brutto - 2057 zł
+    - koszt dla pracodawcy:
+      - wynagrodzenie pracownika - 2057 zł
+      - ubezpieczenie emerytalne - 201 zł
+      - ubezpieczenie rentowe - 134 zł
+      - ubezpieczenie wypadkowe - 37 zł
+      - fundusz pracy - 50 zł
+      - FGŚP - 2 zł
+      - łącznie - 2481
+  - umowa zlecenie:
+    - koszt każdego pracownika przy 1500 zł netto:
+      - ubezpieczenie emerytalne - 196 zł
+      - ubezpieczenie rentowe - 30 zł
+      - ubezpieczenie chorobowe - 0 zł
+      - ubezpieczenie zdrowotne - 160 zł
+      - zaliczka na podatek - 118 zł
+      - brutto - 2004 zł
+    - koszt dla pracodawcy:
+      - wynagrodzenie pracownika - 2004 zł
+      - ubezpieczenie emerytalne - 196 zł
+      - ubezpieczenie rentowe - 130 zł
+      - ubezpieczenie wypadkowe - 36 zł
+      - fundusz pracy - 0 zł
+      - FGŚP - 2 zł
+      - łącznie - 2368 zł
