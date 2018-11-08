@@ -1,8 +1,12 @@
 Koszty założenia własnej działalności (sp. z o. o.):
+- kredyt 10 000 zł
 - rejestracja w KRS - 500 zł
 - wpis w Monitorze Sądowym i Gospodarczym - 100 zł
-- minimalny kapitał zakładowy - 5000 zł
 - koszta notarialne - 1000 zł
+- minimalny kapitał zakładowy - 5000 zł
+  - maszyny - piec - 3000 zł
+  - remont lokalu - 2000 zł
+  - sanepid - 500 zł
 
 Koszta działalności gospodarczej:
 - ZUS - pierwsze 2 lata 250, potem 690 (tylko za nas)
@@ -38,3 +42,16 @@ Koszta działalności gospodarczej:
       - fundusz pracy - 0 zł
       - FGŚP - 2 zł
       - łącznie - 2368 zł
+- lokal
+- media
+- produkty + VAT:
+  - mąka - 5%
+  - olej - 5%
+  - drożdże - 
+  - dodatkowo (po upgradach):
+    - orzechy - 5%
+    - owoce - 5%
+    - mleko -
+    - śmietana - 
+    - twaróg -
+    - mak - 
