@@ -12,6 +12,8 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 			{
 				string singletonPath = "Singletons/"+typeof(T).ToString();
 				Object singleton = Instantiate(Resources.Load(singletonPath));
+                Debug.Log(singleton);
+
 				if(singleton)
 					_instance = (T)singleton;
 

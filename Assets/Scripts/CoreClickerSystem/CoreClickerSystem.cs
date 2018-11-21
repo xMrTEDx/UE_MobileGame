@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(ClickPoints), typeof(AutoPoints))]
 [HelpURL("https://docs.google.com/document/d/1yxwlSyVd2fW_dbF42w3urwPe8BSs63UJk-5A1IX4jJ8/edit")]
@@ -14,6 +15,7 @@ public class CoreClickerSystem : Singleton<CoreClickerSystem>
     public ClickPoints clickPointsManager = null; //klasa odpowiedzialna za punkty przez klikanie
     [HideInInspector]
     public AutoPoints autoPointsManager = null; // klasa odpowiedzialna za punkty dodawane automatycznie
+    public Text data;
 
     private float _gamePoints = 0; //aktualne punkty w grze
     public float GamePoints
@@ -100,6 +102,8 @@ public class CoreClickerSystem : Singleton<CoreClickerSystem>
         {
             yield return new WaitForSeconds(clickerSettings.TimeInterval);
             AddAutoPoints();
+            Data.Instance.ChangeDay();
+            data.text = Data.Instance.WritetDate();
         }
     }
     #endregion
