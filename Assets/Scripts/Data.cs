@@ -12,8 +12,6 @@ public class Data : Singleton<Data>
     void Start()
     {
         currentDate = startDate;
-        Debug.Log(startDate);
-        Debug.Log(currentDate);
     }
 
     public void ChangeDay()
