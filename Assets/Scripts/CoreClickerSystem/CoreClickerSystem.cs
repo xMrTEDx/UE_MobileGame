@@ -7,15 +7,13 @@ using UnityEngine.UI;
 
 [RequireComponent(typeof(ClickPoints), typeof(AutoPoints))]
 [HelpURL("https://docs.google.com/document/d/1yxwlSyVd2fW_dbF42w3urwPe8BSs63UJk-5A1IX4jJ8/edit")]
-public class CoreClickerSystem : Singleton<CoreClickerSystem>
+public class CoreClickerSystem : GamePiece
 {
-    [Header("Glowne ustawienia rozgrywki")]
-    public ClickerSettings clickerSettings; //asset przechowujacy ustawienia
     [HideInInspector]
     public ClickPoints clickPointsManager = null; //klasa odpowiedzialna za punkty przez klikanie
     [HideInInspector]
     public AutoPoints autoPointsManager = null; // klasa odpowiedzialna za punkty dodawane automatycznie
-    public Text data;
+    
 
     private float _gamePoints = 0; //aktualne punkty w grze
     public float GamePoints
@@ -29,11 +27,7 @@ public class CoreClickerSystem : Singleton<CoreClickerSystem>
     private bool _gameIsPlaying = false;
     private bool _pauseGame = false;
 
-    /// <summary>
-    /// Start is called on the frame when a script is enabled just before
-    /// any of the Update methods is called the first time.
-    /// </summary>
-    void Start()
+    public void Init() //uzywac zamiast start
     {
         clickPointsManager = GetComponent<ClickPoints>();
         autoPointsManager = GetComponent<AutoPoints>();
@@ -100,10 +94,9 @@ public class CoreClickerSystem : Singleton<CoreClickerSystem>
     {
         while (_gameIsPlaying)
         {
-            yield return new WaitForSeconds(clickerSettings.TimeInterval);
+            yield return new WaitForSeconds(ClickerGame.Instance.GameSettings.timerSettings.TimeInterval);
             AddAutoPoints();
-            Data.Instance.ChangeDay();
-            data.text = Data.Instance.WritetDate();
+            ClickerGame.Instance.DataSystem.ChangeDay();
         }
     }
     #endregion

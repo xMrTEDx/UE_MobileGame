@@ -7,19 +7,12 @@ public class BakeriesModifier : MonoBehaviour {
 	public void BuyNewBakery()
 	{
 		//TODO sprawdzić czy są pieniądze i zabrać kasę z puli
-		BakeriesSystem.Instance.AddBakery();
+		ClickerGame.Instance.BakeriesSystem.AddBakery();
 	}
 	public void SellBakery()
 	{
-		if(BakeriesSystem.Instance.RemoveBakery()){
+		if(ClickerGame.Instance.BakeriesSystem.RemoveBakery()){
 			//TODO dodać pieniądze do puli
 		}
 	}
-
-
-    public void UpgradeBakery()
-    {
-        //TODO sprawdzic czy jest hajs
-        BakeriesSystem.Instance.UpgradeBakery();
-    }
 }

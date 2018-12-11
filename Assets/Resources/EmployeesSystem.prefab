@@ -9,46 +9,45 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1886207932002818}
+  m_RootGameObject: {fileID: 1800899504413924}
   m_IsPrefabAsset: 1
---- !u!1 &1886207932002818
+--- !u!1 &1800899504413924
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4387317536230250}
-  - component: {fileID: 114495043245263514}
+  - component: {fileID: 4754615051618142}
+  - component: {fileID: 114926224519814832}
   m_Layer: 0
-  m_Name: CoreClickerSystem
+  m_Name: EmployeesSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4387317536230250
+--- !u!4 &4754615051618142
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1886207932002818}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.602454, y: 4.53642, z: -5.825835}
+  m_GameObject: {fileID: 1800899504413924}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114495043245263514
+--- !u!114 &114926224519814832
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1886207932002818}
+  m_GameObject: {fileID: 1800899504413924}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78a57fde214a21a47aae347022c4c4a1, type: 3}
+  m_Script: {fileID: 11500000, guid: 8885df03e4e28ef47a06e03b04fc8744, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickerSettings: {fileID: 11400000, guid: 2993dbe2a9331ac4bb71987327ad0b1c, type: 2}

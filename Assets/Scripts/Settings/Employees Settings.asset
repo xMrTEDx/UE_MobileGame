@@ -12,3 +12,6 @@ MonoBehaviour:
   m_Name: Employees Settings
   m_EditorClassIdentifier: 
   maxPoints: 5
+  employeeUIprefab: {fileID: 1416510589964770, guid: 6723241d8c5aba743958ae3d844727a5,
+    type: 2}
+  employeesLevels: {fileID: 11400000, guid: 970603c6722730d4abe83cba862ffad9, type: 2}

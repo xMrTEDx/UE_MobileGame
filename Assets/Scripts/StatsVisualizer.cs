@@ -9,16 +9,17 @@ public class StatsVisualizer : MonoBehaviour {
 
 	void Update()
 	{
+		ClickerGame currentGame = ClickerGame.Instance;
 		if(statsText)
 		{
 			string text = 
 			"Stats\n\n"+
-			"Bakeries count: "+BakeriesSystem.Instance.Bakeries.Count+"\n"+
-			"Number od workplaces in every bakery: "+BakeriesSystem.Instance.NumberOfWorkPlace+"\n"+
+			"Bakeries count: "+currentGame.BakeriesSystem.Bakeries.Count+"\n"+
+			"Number od workplaces in every bakery: "+currentGame.BakeriesSystem.NumberOfWorkPlace+"\n"+
 			"Employees count: "+EmployeesNumber()+"\n"+
-			"Employees training productivity: "+EmployeesSystem.Instance.TrainingProductivity+"\n"+
+			"Employees training productivity: "+currentGame.EmployeesSystem.CurrentTrainingProductivity+"\n"+
 			"Income every interval: "+Income()+"\n"+
-			"Points added by click: "+CoreClickerSystem.Instance.clickPointsManager.LiczbaPunktowPrzyKliknieciu*CoreClickerSystem.Instance.clickPointsManager.MnoznikPunktowPrzyKliknieciu;
+			"Points added by click: "+currentGame.CoreClickerSystem.clickPointsManager.LiczbaPunktowPrzyKliknieciu*currentGame.CoreClickerSystem.clickPointsManager.MnoznikPunktowPrzyKliknieciu;
 
 			statsText.text = text;
 		}
@@ -26,7 +27,7 @@ public class StatsVisualizer : MonoBehaviour {
 	int EmployeesNumber()
 	{
 		int number =0;
-		foreach(var bakery in BakeriesSystem.Instance.Bakeries)
+		foreach(var bakery in ClickerGame.Instance.BakeriesSystem.Bakeries)
 		{
 			foreach(var employee in bakery.EmployeesInTheBakery)
 			{
@@ -37,6 +38,6 @@ public class StatsVisualizer : MonoBehaviour {
 	}
 	float Income()
 	{
-		return CoreClickerSystem.Instance.autoPointsManager.LiczbaPunktowWPuli * CoreClickerSystem.Instance.autoPointsManager.MnoznikPunktowWPuli;
+		return ClickerGame.Instance.CoreClickerSystem.autoPointsManager.LiczbaPunktowWPuli * ClickerGame.Instance.CoreClickerSystem.autoPointsManager.MnoznikPunktowWPuli;
 	}
 }

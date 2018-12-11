@@ -25,11 +25,11 @@ public class Bakery : MonoBehaviour
 
     public bool CanAddEmployee() //zwraca czy jest miejce w piekarni
     {
-        return employeesInTheBakery.Count < BakeriesSystem.Instance.NumberOfWorkPlace ? true : false;
+        return employeesInTheBakery.Count < ClickerGame.Instance.BakeriesSystem.NumberOfWorkPlace ? true : false;
     }
     public bool AddEmployee(Employee employee) //dodaje pracownika do piekarni (pracownik podany w parametrze)
     {
-        if (employeesInTheBakery.Count < BakeriesSystem.Instance.NumberOfWorkPlace)
+        if (employeesInTheBakery.Count < ClickerGame.Instance.BakeriesSystem.NumberOfWorkPlace)
         {
             employeesInTheBakery.Add(employee);
             RecalculateAutoPoints();
@@ -62,7 +62,7 @@ public class Bakery : MonoBehaviour
         float newAutoPointsValue = 0;
         foreach (var employee in employeesInTheBakery)
         {
-            newAutoPointsValue += EmployeesSystem.Instance.employeesSettings.maxPoints * ((employee.ExperienceProductivity + EmployeesSystem.Instance.TrainingProductivity) / 100); //max points * productivity
+            newAutoPointsValue += ClickerGame.Instance.GameSettings.employeesSettings.maxPoints * ((employee.ExperienceProductivity + ClickerGame.Instance.EmployeesSystem.CurrentTrainingProductivity) / 100); //max points * productivity
         }
         autoPointsModifier.ChangeAutoPointsValue(newAutoPointsValue);
 

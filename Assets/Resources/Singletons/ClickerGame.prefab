@@ -9,47 +9,45 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1952853142781056}
+  m_RootGameObject: {fileID: 1200921605563944}
   m_IsPrefabAsset: 1
---- !u!1 &1952853142781056
+--- !u!1 &1200921605563944
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4680852807660376}
-  - component: {fileID: 114854136363070250}
+  - component: {fileID: 4627233065122230}
+  - component: {fileID: 114506540986952298}
   m_Layer: 0
-  m_Name: BakeriesSystem
+  m_Name: ClickerGame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4680852807660376
+--- !u!4 &4627233065122230
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1952853142781056}
+  m_GameObject: {fileID: 1200921605563944}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 648.7107, y: 353.37585, z: -11.625}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114854136363070250
+--- !u!114 &114506540986952298
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1952853142781056}
+  m_GameObject: {fileID: 1200921605563944}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 249c1233265db7c4ba61b5902698a529, type: 3}
+  m_Script: {fileID: 11500000, guid: d0f0911fa5066ad4e8a373df626c8850, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bakeriesAsset: {fileID: 11400000, guid: cb99fa63edd50594cb1df7b912a75fd4, type: 2}
-  bakeriesParent: {fileID: 0}

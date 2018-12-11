@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu (menuName = "Employees/EmployeesAsset")]
-public class EmployeesAsset : ScriptableObject {
-	public GameObject EmployeeGameObject;	
+[CreateAssetMenu(menuName = "Employees/EmployeesAsset")]
+public class EmployeesAsset : ScriptableObject
+{
+    public GameObject EmployeeGameObject;
 }

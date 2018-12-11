@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Employees/Settings")]
+[CreateAssetMenu(menuName = "Settings/Employees")]
 public class EmployeesSettings : ScriptableObject
 {
 
-    [Header("max employee points on every interval")]
+    [Header("100% employee productivity")]
     public float maxPoints = 5;
+    public GameObject employeeUIprefab;
 }
