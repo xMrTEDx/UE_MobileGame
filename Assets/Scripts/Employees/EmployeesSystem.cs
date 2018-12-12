@@ -7,15 +7,6 @@ using System.Linq;
 public class EmployeesSystem : MonoBehaviour
 {
     private float _currentTrainingProductivity = 0; //wydajnosc ze szkolen (wspolne dla wszystkich pracownikow)
-    private byte _CurrentEmployeeLevel = 0;
-
-    public byte EmployeeLevel
-    {
-        get
-        {
-            return _CurrentEmployeeLevel;
-        }
-    }
     public float CurrentTrainingProductivity
     {
         get
@@ -32,41 +23,68 @@ public class EmployeesSystem : MonoBehaviour
 
         }
     }
+    public bool CanHireEmployee
+    {
+        get
+        {
+            Bakery bakeryToAddEmployee = FindBakeryWithLowestEmployeeNumber();
+            return bakeryToAddEmployee.CanAddEmployee();
+        }
+    }
+
+    float _costOfNewEmployee;
+    public float CostOfNewEmployee
+    {
+        get { return _costOfNewEmployee; }
+    }
+    float _rentOfNewEmployee;
+    public float RentOfNewEmployee
+    {
+        get { return _rentOfNewEmployee; }
+    }
     public void Init() //uzywac zamiast start
     {
-        _currentTrainingProductivity = ClickerGame.Instance.Levels.employeesLevels.level[0].trainingProductivity;
+        CalculateNewEmployeeCosts();
+    }
+    public void Ulepsz(EmployeeUpgrade upgrade)
+    {
+        _currentTrainingProductivity += upgrade.trainingProductivity;
+        if (upgrade.mnoznikCzasowy.Length > 0)
+            ClickerGame.Instance.CoreClickerSystem.autoPointsManager.DodajMnoznikPunktow(upgrade.mnoznikCzasowy[0].mnoznikPunktowCzasowy, upgrade.mnoznikCzasowy[0].sekundTrwaniaMnoznika);
+
+        CalculateNewEmployeeCosts();
+        ClickerGame.Instance.BakeriesSystem.Bakeries[0].RecalculateAutoPoints();
+    }
+    void CalculateNewEmployeeCosts()
+    {
+        float buyCosts = ClickerGame.Instance.GameSettings.costsSettings.newEmployeeCost + 5* _currentTrainingProductivity;
+        float randomBuy = ClickerGame.Instance.GameSettings.costsSettings.randomEmployeeCost;
+
+        float min = buyCosts - buyCosts * randomBuy;
+        float max = buyCosts + buyCosts * randomBuy;
+
+        _costOfNewEmployee = Random.Range(min, max);
+
+        float rentCosts = ClickerGame.Instance.GameSettings.costsSettings.employeeSalary;
+        float randomRent = ClickerGame.Instance.GameSettings.costsSettings.randomEmployeeSalary;
+
+        min = rentCosts - rentCosts * randomRent;
+        max = rentCosts + rentCosts * randomRent;
+
+        _rentOfNewEmployee = Random.Range(min, max);
     }
     public bool HireEmployee()
     {
-        return addEmployeeToBakery();
+        if(addEmployeeToBakery())
+        {
+            CalculateNewEmployeeCosts();
+            return true;
+        }
+        return false;
     }
     public bool FireEmployee()
     {
         return removeEmployeeFromBakery();
-    }
-    public void LevelUPEmployees()
-    {
-        if (_CurrentEmployeeLevel + 1 < ClickerGame.Instance.Levels.bakeriesLevels.level.Length)
-        {
-            if (ClickerGame.Instance.CoreClickerSystem.GamePoints >= ClickerGame.Instance.Levels.bakeriesLevels.level[_CurrentEmployeeLevel + 1].value)
-            {
-                _CurrentEmployeeLevel++;
-                _currentTrainingProductivity = ClickerGame.Instance.Levels.employeesLevels.level[_CurrentEmployeeLevel].trainingProductivity;
-
-                ClickerGame.Instance.CoreClickerSystem.BuyUpgrade(ClickerGame.Instance.Levels.bakeriesLevels.level[_CurrentEmployeeLevel]); //zabiera kase za upgrade
-                Debug.Log("ulepszono");
-            }
-            else
-            {
-                // wyswietl uzytkownikowi ze nie ma kasy na upgrade
-                Debug.Log("Nie masz kasy na ten upgrade leszczu");
-            }
-        }
-        else
-        {
-            // wyswietl uzytkownikowi ze max level
-            Debug.Log("max level");
-        }
     }
     private bool addEmployeeToBakery() //dodaje pracownika do piekarni ktora ma najmniej pracownikow zatrudnionych
     {

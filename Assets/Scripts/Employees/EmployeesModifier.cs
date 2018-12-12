@@ -4,23 +4,22 @@ using UnityEngine;
 
 public class EmployeesModifier : MonoBehaviour
 {
-
     public void HireEmployee()
     {
-        if (ClickerGame.Instance.EmployeesSystem.HireEmployee())
+        if (ClickerGame.Instance.EmployeesSystem.CanHireEmployee)
         {
-            //TODO zabrac kase z puli (za szkolenie pracownika)
+            if (ClickerGame.Instance.CoreClickerSystem.BuySomething(ClickerGame.Instance.EmployeesSystem.CostOfNewEmployee))
+                ClickerGame.Instance.EmployeesSystem.HireEmployee();
+
+            // dodac wynagrodzenie dla pracownika kasowane co miesiac
         }
     }
     public void FireEmployee()
     {
         if (ClickerGame.Instance.EmployeesSystem.FireEmployee())
         {
-            //TODO cos tam zrobic po zwolnieniu
+            //usunac wynagrodzenie pracownika
         }
     }
-    public void LevelUP()
-    {
-        ClickerGame.Instance.EmployeesSystem.LevelUPEmployees();
-    }
+    
 }

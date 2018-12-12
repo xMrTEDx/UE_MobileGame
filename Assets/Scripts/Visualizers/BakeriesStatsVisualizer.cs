@@ -14,9 +14,7 @@ public class BakeriesStatsVisualizer : MonoBehaviour {
 	void Update () {
 		text.text = 
 		string.Format(
-			"Bakeries level: "+ ClickerGame.Instance.BakeriesSystem.BakeryLevel.ToString()
-			+"\n"
-			+"Number of workplace in every bakery: "
+			"Number of workplace in every bakery: "
 			+ ClickerGame.Instance.BakeriesSystem.NumberOfWorkPlace.ToString());
 	}
 }

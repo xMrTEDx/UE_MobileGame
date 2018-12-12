@@ -13,7 +13,7 @@ public class CoreClickerSystem : GamePiece
     public ClickPoints clickPointsManager = null; //klasa odpowiedzialna za punkty przez klikanie
     [HideInInspector]
     public AutoPoints autoPointsManager = null; // klasa odpowiedzialna za punkty dodawane automatycznie
-    
+
 
     private float _gamePoints = 0; //aktualne punkty w grze
     public float GamePoints
@@ -101,9 +101,18 @@ public class CoreClickerSystem : GamePiece
     }
     #endregion
 
-    public void BuyUpgrade(Upgrade upgrade)
+    public bool BuySomething(float cost)
     {
-        _gamePoints -= upgrade.value;
+        if (_gamePoints >= cost)
+        {
+            _gamePoints -= cost;
+            return true;
+        }
+        else return false;
+    }
+    public void SellSomething(float cost)
+    {
+        
     }
 
     private void AddAutoPoints()

@@ -14,8 +14,7 @@ public class ClickerGame : Singleton<ClickerGame>
     private DataSystem dataSystem;
     private GameSettings gameSettings;
     private MainCanvasClicker mainCanvasClicker;
-	private EventSystem eventSystem;
-    private Levels levels;
+    private EventSystem eventSystem;
     #endregion
 
     #region public - systems etc.
@@ -67,7 +66,7 @@ public class ClickerGame : Singleton<ClickerGame>
         }
     }
 
-    
+
     public EventSystem EventSystem
     {
         get
@@ -76,13 +75,7 @@ public class ClickerGame : Singleton<ClickerGame>
         }
     }
 
-    public Levels Levels
-    {
-        get
-        {
-            return levels;
-        }
-    }
+
     #endregion
 
     void Start()
@@ -91,20 +84,26 @@ public class ClickerGame : Singleton<ClickerGame>
         InitAll();
     }
 
-	void InstantiateGame()
-	{
-		clickerSystems = FindReferenceOrAdd<ClickerSystems>("Systems", GetComponent<Transform>());
+    void InstantiateGame()
+    {
+        clickerSystems = FindReferenceOrAdd<ClickerSystems>("Systems", GetComponent<Transform>());
         coreClickerSystem = FindReferenceOrLoad<CoreClickerSystem>(clickerSystems.GetComponent<Transform>());
         bakeriesSystem = FindReferenceOrLoad<BakeriesSystem>(clickerSystems.GetComponent<Transform>());
         employeesSystem = FindReferenceOrLoad<EmployeesSystem>(clickerSystems.GetComponent<Transform>());
         dataSystem = FindReferenceOrLoad<DataSystem>(clickerSystems.GetComponent<Transform>());
         gameSettings = FindReferenceOrLoad<GameSettings>(GetComponent<Transform>());
-        levels = gameSettings.GetComponent<Levels>();
         mainCanvasClicker = FindObjectOfType<MainCanvasClicker>();
-		if(!mainCanvasClicker) Instantiate(Resources.Load("MainCanvasClicker"));
-		eventSystem = FindObjectOfType<EventSystem>();
-		if(!eventSystem) Instantiate(Resources.Load("EventSystem"));
-	}
+        if (!mainCanvasClicker) Instantiate(Resources.Load("MainCanvasClicker"));
+        eventSystem = FindObjectOfType<EventSystem>();
+        if (!eventSystem) Instantiate(Resources.Load("EventSystem"));
+
+        BakeriesUpgradesWindow bakeriesUpgradesWindow = mainCanvasClicker.GetComponentInChildren<BakeriesUpgradesWindow>();
+        if (bakeriesUpgradesWindow) bakeriesUpgradesWindow.Init();
+
+        EmployeesUpgradesWindow employeesUpgradesWindow = mainCanvasClicker.GetComponentInChildren<EmployeesUpgradesWindow>();
+        if (employeesUpgradesWindow) employeesUpgradesWindow.Init();
+
+    }
     void InitAll()
     {
         coreClickerSystem.Init();

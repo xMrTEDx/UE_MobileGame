@@ -8,19 +8,19 @@ public class BakeriesSystem : GamePiece
 {
     List<Bakery> _bakeries = new List<Bakery>(); //lista wszystkich piekarn
 
-    private int _numberOfWorkPlace = 0; //liczba miejsc pracy w każdej piekarni (w kazdej jest tyle samo miejsc)
+    private int _numberOfWorkPlace = 1; //liczba miejsc pracy w każdej piekarni (w kazdej jest tyle samo miejsc)
 
-
-    private byte _bakeryLevel = 0;      //poziom piekarni (wszystkie upgrade'ują się jednoczesnie)
-
-    public byte BakeryLevel
+    float _costOfNewBakery;
+    public float CostOfNewBakery
     {
-        get
-        {
-            return _bakeryLevel;
-        }
+        get { return _costOfNewBakery; }
     }
-
+    float _rentOfNewBakery;
+    public float RentOfNewBakery
+    {
+        get { return _rentOfNewBakery; }
+    }
+    
     public int NumberOfWorkPlace
     {
         get
@@ -38,35 +38,36 @@ public class BakeriesSystem : GamePiece
     public void Init() //uzywac zamiast start
     {
         AddBakery();
-        _numberOfWorkPlace = ClickerGame.Instance.Levels.bakeriesLevels.level[0].numberOfWorkPlace;
     }
-
-    public void LevelUP()
+    public void Ulepsz(BakeryUpgrade upgrade)
     {
-        if (_bakeryLevel + 1 < ClickerGame.Instance.Levels.bakeriesLevels.level.Length)
-        {
-            if (ClickerGame.Instance.CoreClickerSystem.GamePoints >= ClickerGame.Instance.Levels.bakeriesLevels.level[_bakeryLevel + 1].value)
-            {
-                _bakeryLevel++;
-                _numberOfWorkPlace = ClickerGame.Instance.Levels.bakeriesLevels.level[_bakeryLevel].numberOfWorkPlace;
+        _numberOfWorkPlace += upgrade.additionalWorkPlaces;
+        ClickerGame.Instance.CoreClickerSystem.autoPointsManager.DodajMnoznikPunktow(upgrade.mnoznikPunktow);
+        if (upgrade.mnoznikCzasowy.Length > 0)
+            ClickerGame.Instance.CoreClickerSystem.autoPointsManager.DodajMnoznikPunktow(upgrade.mnoznikCzasowy[0].mnoznikPunktowCzasowy,upgrade.mnoznikCzasowy[0].sekundTrwaniaMnoznika);
 
-                ClickerGame.Instance.CoreClickerSystem.BuyUpgrade(ClickerGame.Instance.Levels.bakeriesLevels.level[_bakeryLevel]); //zabiera kase za upgrade
-
-                 Debug.Log("ulepszono");
-            }
-            else
-            {
-                // wyswietl uzytkownikowi ze nie ma kasy na upgrade
-                Debug.Log("Nie masz kasy na ten upgrade leszczu");
-            }
-        }
-        else
-        {
-            // wyswietl uzytkownikowi ze max level
-             Debug.Log("max level");
-        }
+        CalculateNewBakeryCosts();
+        _bakeries[0].RecalculateAutoPoints();
     }
 
+    void CalculateNewBakeryCosts()
+    {
+        float buyCosts = ClickerGame.Instance.GameSettings.costsSettings.newBakeryCost + ClickerGame.Instance.GameSettings.costsSettings.newBakeryCost * _numberOfWorkPlace / 4;
+        float randomBuy = ClickerGame.Instance.GameSettings.costsSettings.randomBakeryCost;
+
+        float min = buyCosts - buyCosts * randomBuy;
+        float max = buyCosts + buyCosts * randomBuy;
+
+        _costOfNewBakery = Random.Range(min, max);
+
+        float rentCosts = ClickerGame.Instance.GameSettings.costsSettings.bakeryRent;
+        float randomRent = ClickerGame.Instance.GameSettings.costsSettings.randomBakeryRent;
+
+        min = rentCosts - rentCosts * randomRent;
+        max = rentCosts + rentCosts * randomRent;
+
+        _rentOfNewBakery = Random.Range(min, max);
+    }
     public void AddWorkPlace() //dodaje miejsce pracy do wszystkich piekarń
     {
         _numberOfWorkPlace++;
@@ -75,6 +76,8 @@ public class BakeriesSystem : GamePiece
     {
         GameObject newBakery = Instantiate(ClickerGame.Instance.GameSettings.bakeriesSettings.bakeryUIprefab, ClickerGame.Instance.MainCanvasClicker.bakeriesParent);
         _bakeries.Add(newBakery.GetComponent<Bakery>());
+
+        CalculateNewBakeryCosts();
     }
     public bool RemoveBakery() //usuwa piekarnie
     {

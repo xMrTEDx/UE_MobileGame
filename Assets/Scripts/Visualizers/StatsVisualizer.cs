@@ -15,12 +15,14 @@ public class StatsVisualizer : MonoBehaviour
         {
             string text =
             "Stats\n\n" +
+            "new employee cost: "+ currentGame.EmployeesSystem.CostOfNewEmployee + "\n" +
+            "new employee rent: "+ currentGame.EmployeesSystem.RentOfNewEmployee + "\n" +
+            "new bakery cost: "+ currentGame.BakeriesSystem.CostOfNewBakery + "\n" +
+            "new bakery rent: "+ currentGame.BakeriesSystem.RentOfNewBakery + "\n" +
             "Bakeries count: " + currentGame.BakeriesSystem.Bakeries.Count + "\n" +
-            "Bakeries level: " + currentGame.BakeriesSystem.BakeryLevel + "\n" +
             "Number od workplaces in every bakery: " + currentGame.BakeriesSystem.NumberOfWorkPlace + "\n" +
             "Employees count: " + EmployeesNumber() + "\n" +
-			"Employees level: " + currentGame.EmployeesSystem.EmployeeLevel + "\n" +
-            "Employees training productivity: " + currentGame.EmployeesSystem.CurrentTrainingProductivity + "\n" +
+			"Employees training productivity: " + currentGame.EmployeesSystem.CurrentTrainingProductivity + "\n" +
             "Income every interval: " + Income() + "\n" +
             "Points added by click: " + currentGame.CoreClickerSystem.clickPointsManager.LiczbaPunktowPrzyKliknieciu * currentGame.CoreClickerSystem.clickPointsManager.MnoznikPunktowPrzyKliknieciu;
 

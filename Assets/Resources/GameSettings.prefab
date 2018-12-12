@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4245861452790726}
   - component: {fileID: 114748779632995490}
-  - component: {fileID: 114962930781571556}
   m_Layer: 0
   m_Name: GameSettings
   m_TagString: Untagged
@@ -35,7 +34,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1632157989951122}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -75.108826, y: -102.766785, z: 3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -56,16 +55,5 @@ MonoBehaviour:
   bakeriesSettings: {fileID: 11400000, guid: 79ae746aadb9bb04cbb8972163fdda91, type: 2}
   employeesSettings: {fileID: 11400000, guid: cc3d4f70a871fc844b40f9e7a6e0ad79, type: 2}
   dataSettings: {fileID: 11400000, guid: 7ebaceb65908f94469669ff3c00a234b, type: 2}
---- !u!114 &114962930781571556
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1632157989951122}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c43783c6e949934ebb2b43c5198b9ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bakeriesLevels: {fileID: 11400000, guid: 647c955f9c0b23442ba1eaee44b6e249, type: 2}
-  employeesLevels: {fileID: 11400000, guid: 970603c6722730d4abe83cba862ffad9, type: 2}
+  gameUpgrades: {fileID: 11400000, guid: 0ea1a3ae44b046f49afd8c564dc68427, type: 2}
+  costsSettings: {fileID: 11400000, guid: 97b8483940a024a40be48097f6965b4f, type: 2}

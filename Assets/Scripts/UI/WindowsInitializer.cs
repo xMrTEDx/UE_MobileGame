@@ -13,7 +13,7 @@ public class WindowsInitializer : MonoBehaviour
     [Space]
     public List<Window> windowsStack;
 
-    void Awake()
+    void Start()
     {
         Init();
     }
@@ -40,9 +40,20 @@ public class WindowsInitializer : MonoBehaviour
                            button.e_OnClick.Invoke();
                        });
                 }
-
             }
-            window.gameObject.SetActive(false); //hide all windows
+        }
+        StartCoroutine(WaitForFrame());
+    }
+    IEnumerator WaitForFrame()
+    {
+        yield return null;
+        HideAllWindows();
+    }
+    public void HideAllWindows()
+    {
+        foreach (var window in windows)
+        {
+             window.gameObject.SetActive(false); //hide all windows
         }
         windows[0].EnableWindow(); //show main window
     }

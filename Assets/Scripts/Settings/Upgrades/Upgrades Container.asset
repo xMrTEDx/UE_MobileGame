@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddec139b1c610854db1be24676390a9e, type: 3}
+  m_Name: Upgrades Container
+  m_EditorClassIdentifier: 
+  bakeriesUpgrades:
+  - {fileID: 11400000, guid: b0678d703a3ec12438546a3efebe21a9, type: 2}
+  - {fileID: 11400000, guid: 228ad5ecba04d85489493a1e1a4cd12d, type: 2}
+  - {fileID: 11400000, guid: 2a18d43215e9dfd4aa7fcf598354127e, type: 2}
+  - {fileID: 11400000, guid: 4ecedceba6b49cf43a2daba2bbba88d0, type: 2}
+  employeesUpgrades:
+  - {fileID: 11400000, guid: 3fdbba37f12c4af42a839b2c450d24bc, type: 2}
+  - {fileID: 11400000, guid: c8127877f4738434199492ce96364dac, type: 2}
+  - {fileID: 11400000, guid: 34eddcf350e25f1479d06caaccc2637d, type: 2}
+  - {fileID: 11400000, guid: 17d383f3efbc7c44dbf129cb191adfc5, type: 2}

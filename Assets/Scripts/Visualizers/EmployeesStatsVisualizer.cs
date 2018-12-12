@@ -14,9 +14,7 @@ public class EmployeesStatsVisualizer : MonoBehaviour {
 	void Update () {
 		text.text = 
 		string.Format(
-			"Employees level: "+ ClickerGame.Instance.EmployeesSystem.EmployeeLevel
-			+"\n"
-			+"Employees training productivity: "
+			"Employees training productivity: "
 			+ ClickerGame.Instance.EmployeesSystem.CurrentTrainingProductivity);
 	}
 }
