@@ -101,6 +101,10 @@ public class CoreClickerSystem : GamePiece
     }
     #endregion
 
+    public void BuyUpgrade(Upgrade upgrade)
+    {
+        _gamePoints -= upgrade.value;
+    }
 
     private void AddAutoPoints()
     {

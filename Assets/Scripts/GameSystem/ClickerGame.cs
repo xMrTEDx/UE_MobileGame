@@ -15,6 +15,7 @@ public class ClickerGame : Singleton<ClickerGame>
     private GameSettings gameSettings;
     private MainCanvasClicker mainCanvasClicker;
 	private EventSystem eventSystem;
+    private Levels levels;
     #endregion
 
     #region public - systems etc.
@@ -66,11 +67,20 @@ public class ClickerGame : Singleton<ClickerGame>
         }
     }
 
+    
     public EventSystem EventSystem
     {
         get
         {
             return eventSystem;
+        }
+    }
+
+    public Levels Levels
+    {
+        get
+        {
+            return levels;
         }
     }
     #endregion
@@ -89,6 +99,7 @@ public class ClickerGame : Singleton<ClickerGame>
         employeesSystem = FindReferenceOrLoad<EmployeesSystem>(clickerSystems.GetComponent<Transform>());
         dataSystem = FindReferenceOrLoad<DataSystem>(clickerSystems.GetComponent<Transform>());
         gameSettings = FindReferenceOrLoad<GameSettings>(GetComponent<Transform>());
+        levels = gameSettings.GetComponent<Levels>();
         mainCanvasClicker = FindObjectOfType<MainCanvasClicker>();
 		if(!mainCanvasClicker) Instantiate(Resources.Load("MainCanvasClicker"));
 		eventSystem = FindObjectOfType<EventSystem>();

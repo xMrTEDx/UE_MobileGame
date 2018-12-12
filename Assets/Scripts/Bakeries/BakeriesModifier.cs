@@ -15,4 +15,8 @@ public class BakeriesModifier : MonoBehaviour {
 			//TODO dodać pieniądze do puli
 		}
 	}
+	public void LevelUPBakeries()
+	{
+		ClickerGame.Instance.BakeriesSystem.LevelUP();
+	}
 }

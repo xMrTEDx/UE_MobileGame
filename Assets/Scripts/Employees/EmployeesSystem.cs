@@ -34,7 +34,7 @@ public class EmployeesSystem : MonoBehaviour
     }
     public void Init() //uzywac zamiast start
     {
-
+        _currentTrainingProductivity = ClickerGame.Instance.Levels.employeesLevels.level[0].trainingProductivity;
     }
     public bool HireEmployee()
     {
@@ -43,6 +43,30 @@ public class EmployeesSystem : MonoBehaviour
     public bool FireEmployee()
     {
         return removeEmployeeFromBakery();
+    }
+    public void LevelUPEmployees()
+    {
+        if (_CurrentEmployeeLevel + 1 < ClickerGame.Instance.Levels.bakeriesLevels.level.Length)
+        {
+            if (ClickerGame.Instance.CoreClickerSystem.GamePoints >= ClickerGame.Instance.Levels.bakeriesLevels.level[_CurrentEmployeeLevel + 1].value)
+            {
+                _CurrentEmployeeLevel++;
+                _currentTrainingProductivity = ClickerGame.Instance.Levels.employeesLevels.level[_CurrentEmployeeLevel].trainingProductivity;
+
+                ClickerGame.Instance.CoreClickerSystem.BuyUpgrade(ClickerGame.Instance.Levels.bakeriesLevels.level[_CurrentEmployeeLevel]); //zabiera kase za upgrade
+                Debug.Log("ulepszono");
+            }
+            else
+            {
+                // wyswietl uzytkownikowi ze nie ma kasy na upgrade
+                Debug.Log("Nie masz kasy na ten upgrade leszczu");
+            }
+        }
+        else
+        {
+            // wyswietl uzytkownikowi ze max level
+            Debug.Log("max level");
+        }
     }
     private bool addEmployeeToBakery() //dodaje pracownika do piekarni ktora ma najmniej pracownikow zatrudnionych
     {
@@ -63,7 +87,7 @@ public class EmployeesSystem : MonoBehaviour
     }
     public GameObject AddEmployeeToScene()
     {
-        return Instantiate(ClickerGame.Instance.GameSettings.employeesSettings.employeeUIprefab,ClickerGame.Instance.MainCanvasClicker.employeesParent);
+        return Instantiate(ClickerGame.Instance.GameSettings.employeesSettings.employeeUIprefab, ClickerGame.Instance.MainCanvasClicker.employeesParent);
     }
     private Bakery FindBakeryWithLowestEmployeeNumber()
     {

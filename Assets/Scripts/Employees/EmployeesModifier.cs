@@ -19,4 +19,8 @@ public class EmployeesModifier : MonoBehaviour
             //TODO cos tam zrobic po zwolnieniu
         }
     }
+    public void LevelUP()
+    {
+        ClickerGame.Instance.EmployeesSystem.LevelUPEmployees();
+    }
 }

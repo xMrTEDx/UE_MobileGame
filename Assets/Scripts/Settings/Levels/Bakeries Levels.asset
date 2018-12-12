@@ -11,34 +11,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e66fb4d88b83a54f94368b8f5b0fa47, type: 3}
   m_Name: Bakeries Levels
   m_EditorClassIdentifier: 
-  levels:
-  - autoPoints: 0
-    autoPointsMultipler: 0
+  level:
+  - value: 0
     numberOfWorkPlace: 2
-  - autoPoints: 0
-    autoPointsMultipler: 0
-    numberOfWorkPlace: 2
-  - autoPoints: 0
-    autoPointsMultipler: 0
+  - value: 10
     numberOfWorkPlace: 3
-  - autoPoints: 0
-    autoPointsMultipler: 0
-    numberOfWorkPlace: 3
-  - autoPoints: 0
-    autoPointsMultipler: 0
+  - value: 20
     numberOfWorkPlace: 4
-  - autoPoints: 0
-    autoPointsMultipler: 0
-    numberOfWorkPlace: 4
-  - autoPoints: 0
-    autoPointsMultipler: 0
-    numberOfWorkPlace: 4
-  - autoPoints: 0
-    autoPointsMultipler: 0
+  - value: 30
     numberOfWorkPlace: 5
-  - autoPoints: 0
-    autoPointsMultipler: 0
-    numberOfWorkPlace: 5
-  - autoPoints: 0
-    autoPointsMultipler: 0
-    numberOfWorkPlace: 5
+  - value: 40
+    numberOfWorkPlace: 6
+  - value: 50
+    numberOfWorkPlace: 7
+  - value: 60
+    numberOfWorkPlace: 8
+  - value: 70
+    numberOfWorkPlace: 9
+  - value: 80
+    numberOfWorkPlace: 10

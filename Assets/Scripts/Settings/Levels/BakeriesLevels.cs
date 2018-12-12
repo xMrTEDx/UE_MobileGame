@@ -5,12 +5,10 @@ using UnityEngine;
 [CreateAssetMenu (menuName = "Levels/Bakeries")]
 public class BakeriesLevels : ScriptableObject {
 
-	public BakeryLevel[] levels;
+	public BakeryLevel[] level;
 	[System.Serializable]
-	public class BakeryLevel
+	public class BakeryLevel : Upgrade
 	{
-		public float autoPoints;
-		public float autoPointsMultipler;
 		public int numberOfWorkPlace;
 	}
 }

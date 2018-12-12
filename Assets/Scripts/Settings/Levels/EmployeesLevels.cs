@@ -5,9 +5,9 @@ using UnityEngine;
 [CreateAssetMenu (menuName = "Levels/Employees")]
 public class EmployeesLevels : ScriptableObject {
 
-	public EmployeeLevel[] levels;
+	public EmployeeLevel[] level;
 	[System.Serializable]
-	public class EmployeeLevel
+	public class EmployeeLevel : Upgrade
 	{
 		public float trainingProductivity;
 	}
