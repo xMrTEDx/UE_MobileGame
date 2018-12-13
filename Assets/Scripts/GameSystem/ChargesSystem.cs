@@ -8,17 +8,6 @@ public class ChargesSystem : MonoBehaviour
 {
     List<Credit> credits = new List<Credit>();
 
-    public bool CheckCharges()
-    {
-        int currentDay = ClickerGame.Instance.DataSystem.GetCurrentDate().Day;
-        bool result = false;
-        if (currentDay == 1 || currentDay == 10 || currentDay == 15)
-        {
-            result = true;
-        }
-        return result;
-    }
-
     public float TakeCharges()
     {
         float charges = 0;
@@ -40,6 +29,8 @@ public class ChargesSystem : MonoBehaviour
             default:
                 break;
         }
+
+        if(charges != 0) ClickerGame.Instance.CoreClickerSystem.PayCharges(charges);
         return charges;
     }
 

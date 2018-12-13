@@ -10,8 +10,10 @@ public class CreditWindow : Singleton<CreditWindow>
     public Slider sliderRaty;
     public Button wezPozyczke;
     public Button powrot;
-    public void Init(bool mozliwoscWyjscia)
+    public void ShowCreditWindow(bool mozliwoscWyjscia)
     {
+        ClickerGame.Instance.PauseGame();
+
         sliderRaty.value = 0;
         sliderRaty.value = 0;
 
@@ -44,6 +46,7 @@ public class CreditWindow : Singleton<CreditWindow>
     }
     public void CloseWindow()
     {
+        ClickerGame.Instance.ResumeGame();
         Destroy(gameObject);
     }
 }

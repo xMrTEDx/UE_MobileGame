@@ -8,7 +8,7 @@ public class ClickerGame : Singleton<ClickerGame>
 {
     #region private fields
     private ClickerSystems clickerSystems;
-    private CoreClickerSystem coreClickerSystem;
+    private PointsSystem coreClickerSystem;
     private BakeriesSystem bakeriesSystem;
     private EmployeesSystem employeesSystem;
     private DataSystem dataSystem;
@@ -19,7 +19,7 @@ public class ClickerGame : Singleton<ClickerGame>
     #endregion
 
     #region public - systems etc.
-    public CoreClickerSystem CoreClickerSystem
+    public PointsSystem CoreClickerSystem
     {
         get
         {
@@ -87,16 +87,100 @@ public class ClickerGame : Singleton<ClickerGame>
 
     #endregion
 
+
+    private bool _gameIsPlaying = false;
+    private bool _pauseGame = false;
+
+    public bool IsPlayMode()
+    {
+        return _gameIsPlaying;
+    }
+    public bool IsPause()
+    {
+        return _pauseGame;
+    }
+
+    Coroutine autoPointsClock;
+
     void Start()
     {
+        StartNewGame();
+    }
+
+
+
+    public void StartNewGame()
+    {
+        _gameIsPlaying = true;
+        if(_pauseGame) ResumeGame();
+
+        DestroySystems();
+        
         InstantiateGame();
         InitAll();
+
+        StartClock();
     }
+    
+    void Init()
+    {
+        CreditWindow.Instance.ShowCreditWindow(false);
+    }
+
+
+    public void PauseGame()
+    {
+        _gameIsPlaying = true;
+        _pauseGame = true;
+        //StopClock();
+        Time.timeScale = 0;
+    }
+    public void ResumeGame()
+    {
+        _gameIsPlaying = true;
+        _pauseGame = false;
+        //StartClock();
+        Time.timeScale = 1;
+    }
+    public void StopGame()
+    {
+        _gameIsPlaying = false;
+        _pauseGame = false;
+        //zapisz stan gry
+        StopClock();
+        DestroySystems();
+    }
+
+    #region Game's Clock
+
+    private void StartClock()
+    {
+        autoPointsClock = StartCoroutine(ClockCourtine());
+    }
+    private void StopClock()
+    {
+        StopCoroutine(autoPointsClock);
+    }
+    private IEnumerator ClockCourtine()
+    {
+        while (_gameIsPlaying)
+        {
+            yield return new WaitForSeconds(ClickerGame.Instance.GameSettings.timerSettings.TimeInterval);
+            DoClockActions();
+        }
+    }
+    private void DoClockActions() //metody wykonywane co kazdy cykl zegara
+    {
+        coreClickerSystem.AddAutoPoints();
+        ClickerGame.Instance.DataSystem.ChangeDay();
+        ClickerGame.Instance.ChargesSystem.TakeCharges(); //wazna kolejnosc! najpierw zmiana dnia, a pozniej pobieranie oplat
+    }
+    #endregion
 
     void InstantiateGame()
     {
         clickerSystems = FindReferenceOrAdd<ClickerSystems>("Systems", GetComponent<Transform>());
-        coreClickerSystem = FindReferenceOrLoad<CoreClickerSystem>(clickerSystems.GetComponent<Transform>());
+        coreClickerSystem = FindReferenceOrLoad<PointsSystem>(clickerSystems.GetComponent<Transform>());
         bakeriesSystem = FindReferenceOrLoad<BakeriesSystem>(clickerSystems.GetComponent<Transform>());
         employeesSystem = FindReferenceOrLoad<EmployeesSystem>(clickerSystems.GetComponent<Transform>());
         dataSystem = FindReferenceOrLoad<DataSystem>(clickerSystems.GetComponent<Transform>());
@@ -112,10 +196,22 @@ public class ClickerGame : Singleton<ClickerGame>
 
         EmployeesUpgradesWindow employeesUpgradesWindow = mainCanvasClicker.GetComponentInChildren<EmployeesUpgradesWindow>();
         if (employeesUpgradesWindow) employeesUpgradesWindow.Init();
-
+    }
+    void DestroySystems()
+    {
+        if(clickerSystems) Destroy(clickerSystems);
+        if(coreClickerSystem) Destroy(coreClickerSystem);
+        if(bakeriesSystem) Destroy(bakeriesSystem);
+        if(employeesSystem) Destroy(employeesSystem);
+        if(dataSystem) Destroy(dataSystem);
+        if(chargesSystem) Destroy(chargesSystem);
+        if(gameSettings) Destroy(gameSettings);
+        if(mainCanvasClicker) Destroy(mainCanvasClicker);
+        if(eventSystem) Destroy(eventSystem);
     }
     void InitAll()
     {
+        Init();
         coreClickerSystem.Init();
         bakeriesSystem.Init();
         employeesSystem.Init();

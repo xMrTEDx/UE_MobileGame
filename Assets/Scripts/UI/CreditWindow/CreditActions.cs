@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CreditActions : MonoBehaviour {
 
-	public void OpenCreditWindow(bool mozliwoscWyjscia)
+	public void ShowCreditWindow(bool mozliwoscWyjscia)
 	{
-		CreditWindow.Instance.Init(mozliwoscWyjscia);
+		CreditWindow.Instance.ShowCreditWindow(mozliwoscWyjscia);
 	}
 }
