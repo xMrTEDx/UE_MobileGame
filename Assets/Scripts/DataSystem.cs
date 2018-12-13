@@ -42,4 +42,9 @@ public class DataSystem : MonoBehaviour
         return currentDate;
     }
 
+    public int GetCurrentDay()
+    {
+        return currentDate.Day;
+    }
+
 }

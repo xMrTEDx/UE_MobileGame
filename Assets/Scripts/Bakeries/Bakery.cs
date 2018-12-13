@@ -33,6 +33,7 @@ public class Bakery : MonoBehaviour
         {
             employeesInTheBakery.Add(employee);
             RecalculateAutoPoints();
+            
 
             return true;
         } else return false;

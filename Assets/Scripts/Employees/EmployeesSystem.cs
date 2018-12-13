@@ -6,6 +6,7 @@ using System.Linq;
 [HelpURL("https://docs.google.com/document/d/17Km0x2scTWDCgSQ83Jro8NBujDE-mgXYAoTtgKHoR84/edit")]
 public class EmployeesSystem : MonoBehaviour
 {
+    private int _numberOfEmployees = 0;
     private float _currentTrainingProductivity = 0; //wydajnosc ze szkolen (wspolne dla wszystkich pracownikow)
     public float CurrentTrainingProductivity
     {
@@ -21,6 +22,13 @@ public class EmployeesSystem : MonoBehaviour
                 _currentTrainingProductivity = 0;
             else _currentTrainingProductivity = value;
 
+        }
+    }
+    public int NumberOfEmployees
+    {
+        get
+        {
+            return _numberOfEmployees;
         }
     }
     public bool CanHireEmployee
@@ -75,6 +83,7 @@ public class EmployeesSystem : MonoBehaviour
     }
     public bool HireEmployee()
     {
+        _numberOfEmployees += 1;
         if(addEmployeeToBakery())
         {
             CalculateNewEmployeeCosts();
@@ -84,6 +93,7 @@ public class EmployeesSystem : MonoBehaviour
     }
     public bool FireEmployee()
     {
+        _numberOfEmployees -= 1;
         return removeEmployeeFromBakery();
     }
     private bool addEmployeeToBakery() //dodaje pracownika do piekarni ktora ma najmniej pracownikow zatrudnionych

@@ -51,6 +51,7 @@ public class CoreClickerSystem : GamePiece
     {
         _gameIsPlaying = true;
         ClearGameValues();
+        _gamePoints = 3000;
         StartClock();
     }
     public void PauseGame()
@@ -72,7 +73,7 @@ public class CoreClickerSystem : GamePiece
     }
     private void ClearGameValues()
     {
-        _gamePoints = 0;
+        _gamePoints = 3000;
 
         clickPointsManager.ResetValues();
         autoPointsManager.ResetValues();
@@ -97,6 +98,22 @@ public class CoreClickerSystem : GamePiece
             yield return new WaitForSeconds(ClickerGame.Instance.GameSettings.timerSettings.TimeInterval);
             AddAutoPoints();
             ClickerGame.Instance.DataSystem.ChangeDay();
+            switch (ClickerGame.Instance.DataSystem.GetCurrentDay())
+            {
+                case 1:
+                    Debug.Log("Opłata za czynsz: " + ClickerGame.Instance.BakeriesSystem.Bakeries.Count * 2000);
+                    break;
+                case 10:
+                    Debug.Log("Wypłaty pracownicze: " + ClickerGame.Instance.EmployeesSystem.NumberOfEmployees * 1500);
+                    
+                    break;
+                case 15:
+                    Debug.Log("Raty kredytu: ");
+                    break;
+                default:
+
+                    break;
+            }
         }
     }
     #endregion

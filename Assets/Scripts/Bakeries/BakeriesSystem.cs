@@ -20,7 +20,6 @@ public class BakeriesSystem : GamePiece
     {
         get { return _rentOfNewBakery; }
     }
-    
     public int NumberOfWorkPlace
     {
         get
