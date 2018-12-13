@@ -98,21 +98,9 @@ public class CoreClickerSystem : GamePiece
             yield return new WaitForSeconds(ClickerGame.Instance.GameSettings.timerSettings.TimeInterval);
             AddAutoPoints();
             ClickerGame.Instance.DataSystem.ChangeDay();
-            switch (ClickerGame.Instance.DataSystem.GetCurrentDay())
+            if(ClickerGame.Instance.ChargesSystem.CheckCharges())
             {
-                case 1:
-                    Debug.Log("Opłata za czynsz: " + ClickerGame.Instance.BakeriesSystem.Bakeries.Count * 2000);
-                    break;
-                case 10:
-                    Debug.Log("Wypłaty pracownicze: " + ClickerGame.Instance.EmployeesSystem.NumberOfEmployees * 1500);
-                    
-                    break;
-                case 15:
-                    Debug.Log("Raty kredytu: ");
-                    break;
-                default:
-
-                    break;
+                _gamePoints -= ClickerGame.Instance.ChargesSystem.TakeCharges();
             }
         }
     }

@@ -12,6 +12,7 @@ public class ClickerGame : Singleton<ClickerGame>
     private BakeriesSystem bakeriesSystem;
     private EmployeesSystem employeesSystem;
     private DataSystem dataSystem;
+    private ChargesSystem chargesSystem;
     private GameSettings gameSettings;
     private MainCanvasClicker mainCanvasClicker;
     private EventSystem eventSystem;
@@ -39,6 +40,14 @@ public class ClickerGame : Singleton<ClickerGame>
         get
         {
             return employeesSystem;
+        }
+    }
+
+    public ChargesSystem ChargesSystem
+    {
+        get
+        {
+            return chargesSystem;
         }
     }
 
