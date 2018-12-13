@@ -9,10 +9,14 @@ public class CreditWindow : Singleton<CreditWindow>
     public Slider sliderPozyczka;
     public Slider sliderRaty;
     public Button wezPozyczke;
-    public void Init()
+    public Button powrot;
+    public void Init(bool mozliwoscWyjscia)
     {
         sliderRaty.value = 0;
         sliderRaty.value = 0;
+
+        if (!mozliwoscWyjscia)
+            Destroy(powrot.gameObject);
     }
     public void WezPozyczke()
     {
@@ -29,11 +33,11 @@ public class CreditWindow : Singleton<CreditWindow>
                 //wyswietl uzytkownikowi ze nie moze wziasc kredytu
             }
         }
-		else
-		{
-			Debug.Log("Podano zle wartosci");
-			//powiedz o tym uzytkownikowi
-		}
+        else
+        {
+            Debug.Log("Podano zle wartosci");
+            //powiedz o tym uzytkownikowi
+        }
 
 
 

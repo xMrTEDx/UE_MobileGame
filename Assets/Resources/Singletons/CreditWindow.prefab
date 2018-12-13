@@ -1064,6 +1064,7 @@ MonoBehaviour:
   sliderPozyczka: {fileID: 114096059998094880}
   sliderRaty: {fileID: 114502682879145526}
   wezPozyczke: {fileID: 114071840095795054}
+  powrot: {fileID: 114106219270633440}
 --- !u!114 &114830945461035860
 MonoBehaviour:
   m_ObjectHideFlags: 1
