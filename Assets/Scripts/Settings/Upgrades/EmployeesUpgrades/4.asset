@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Name: 4
   m_EditorClassIdentifier: 
   cost: 50
-  description: "Ulepszenie 4\n\nwzrost produktywno\u015Bci\nkoszt: 50"
+  description: "Szkolenie - Pieczenie wed\u0142ug staropolskich tradycji.\n\nZwi\u0119ksza
+    produktywno\u015B\u0107 pracownika.\nkoszt: 50"
   trainingProductivity: 0.1
   mnoznikCzasowy: []

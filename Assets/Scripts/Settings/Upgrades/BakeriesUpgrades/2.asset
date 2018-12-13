@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Name: 2
   m_EditorClassIdentifier: 
   cost: 20
-  description: 'Ulepszenie 2
+  description: 'Ulepszenie pieca - system piecowy dwuobiegowy
 
 
-    dodaje dwa miejsca pracy
+    Dodaje dwa miejsca pracy
 
     koszt: 20'
   additionalWorkPlaces: 2

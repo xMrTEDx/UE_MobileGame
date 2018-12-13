@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Name: 1
   m_EditorClassIdentifier: 
   cost: 10
-  description: "Ulepszenie 1\n\nwzrost produktywno\u015Bci\nkoszt: 10"
+  description: "Szkolenie - Obs\u0142uga pieca\n\nZwi\u0119ksza produktywno\u015B\u0107
+    pracownika\nKoszt: 10"
   trainingProductivity: 0.1
   mnoznikCzasowy: []

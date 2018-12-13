@@ -12,14 +12,8 @@ MonoBehaviour:
   m_Name: 4
   m_EditorClassIdentifier: 
   cost: 25
-  description: 'Ulepszenie 4
-
-
-    dodaje miejsce pracy
-
-    wzrost wydajnosci pracownikow
-
-    koszt: 25'
+  description: "Ulepszenie - Krajalnica chleba\n\nDodaje miejsce pracy\nZwi\u0119ksza
+    wydajno\u015Bc pracownik\xF3w\nKoszt: 25"
   additionalWorkPlaces: 1
   mnoznikPunktow: 1.3
   mnoznikCzasowy: []

@@ -12,14 +12,8 @@ MonoBehaviour:
   m_Name: 1
   m_EditorClassIdentifier: 
   cost: 10
-  description: 'Ulepszenie 1
-
-
-    dodaje miejsce pracy
-
-    wzrost wydajnosci pracownikow
-
-    koszt: 10'
+  description: "Ulepszenie pieca - du\u017Cy piec p\xF3\u0142kowy\n\nDodaje miejsce
+    pracy\nZwi\u0119ksza wydajno\u015B\u0107 pracownik\xF3w\nKoszt: 10"
   additionalWorkPlaces: 1
   mnoznikPunktow: 1.1
   mnoznikCzasowy: []

@@ -12,12 +12,8 @@ MonoBehaviour:
   m_Name: 3
   m_EditorClassIdentifier: 
   cost: 5
-  description: 'Ulepszenie 3
-
-
-    wzrost wydajnosci pracownikow
-
-    koszt: 5'
+  description: "Ulepszenie - Urz\u0105dzenie do produkcji zaczynu\n\nZwi\u0119ksza
+    wydajno\u015B\u0107 pracownik\xF3w\nKoszt: 5"
   additionalWorkPlaces: 0
   mnoznikPunktow: 1.2
   mnoznikCzasowy: []
