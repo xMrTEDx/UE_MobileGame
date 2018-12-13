@@ -30,7 +30,7 @@ public class ChargesSystem : MonoBehaviour
                 break;
         }
 
-        if(charges != 0) ClickerGame.Instance.CoreClickerSystem.PayCharges(charges);
+        if(charges != 0) ClickerGame.Instance.PointsSystem.PayCharges(charges);
         return charges;
     }
 

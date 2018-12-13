@@ -19,7 +19,7 @@ public class ClickerGame : Singleton<ClickerGame>
     #endregion
 
     #region public - systems etc.
-    public PointsSystem CoreClickerSystem
+    public PointsSystem PointsSystem
     {
         get
         {

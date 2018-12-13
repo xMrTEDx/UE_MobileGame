@@ -7,7 +7,7 @@ public class BakeriesModifier : MonoBehaviour
 
     public void BuyNewBakery()
     {
-        if (ClickerGame.Instance.CoreClickerSystem.BuySomething(ClickerGame.Instance.BakeriesSystem.CostOfNewBakery)) // sprawdzić czy są pieniądze i zabrać kasę z puli
+        if (ClickerGame.Instance.PointsSystem.BuySomething(ClickerGame.Instance.BakeriesSystem.CostOfNewBakery)) // sprawdzić czy są pieniądze i zabrać kasę z puli
         {
             ClickerGame.Instance.BakeriesSystem.AddBakery();
             //dodac pobieranie kasy za wynajem piekarni
@@ -22,7 +22,7 @@ public class BakeriesModifier : MonoBehaviour
     {
         if (ClickerGame.Instance.BakeriesSystem.RemoveBakery())
         {
-            ClickerGame.Instance.CoreClickerSystem.SellSomething(ClickerGame.Instance.BakeriesSystem.CostOfNewBakery / 2);
+            ClickerGame.Instance.PointsSystem.SellSomething(ClickerGame.Instance.BakeriesSystem.CostOfNewBakery / 2);
             // odjac pobieranie kasy za wynajem piekarni
         }
 		else

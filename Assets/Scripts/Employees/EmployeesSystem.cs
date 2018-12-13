@@ -58,7 +58,7 @@ public class EmployeesSystem : MonoBehaviour
     {
         _currentTrainingProductivity += upgrade.trainingProductivity;
         if (upgrade.mnoznikCzasowy.Length > 0)
-            ClickerGame.Instance.CoreClickerSystem.autoPointsManager.DodajMnoznikPunktow(upgrade.mnoznikCzasowy[0].mnoznikPunktowCzasowy, upgrade.mnoznikCzasowy[0].sekundTrwaniaMnoznika);
+            ClickerGame.Instance.PointsSystem.autoPointsManager.DodajMnoznikPunktow(upgrade.mnoznikCzasowy[0].mnoznikPunktowCzasowy, upgrade.mnoznikCzasowy[0].sekundTrwaniaMnoznika);
 
         CalculateNewEmployeeCosts();
         ClickerGame.Instance.BakeriesSystem.Bakeries[0].RecalculateAutoPoints();

@@ -27,7 +27,7 @@ public class EmployeesUpgradesWindow : MonoBehaviour {
 
             referencjeObiektu.button.onClick.AddListener(() =>
             {
-                if (ClickerGame.Instance.CoreClickerSystem.BuySomething(upgrade.cost))
+                if (ClickerGame.Instance.PointsSystem.BuySomething(upgrade.cost))
                 {
                     ClickerGame.Instance.EmployeesSystem.Ulepsz(upgrade);
                     Destroy(obiektUlepszenia);

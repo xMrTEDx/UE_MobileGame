@@ -24,7 +24,7 @@ public class PointsVisualizer : MonoBehaviour {
 	}
 	string GetPointsValue()
 	{
-		double points = Math.Round (ClickerGame.Instance.CoreClickerSystem.GamePoints, 2);
+		double points = Math.Round (ClickerGame.Instance.PointsSystem.GamePoints, 2);
 		return points.ToString("N2");
 	}
 }

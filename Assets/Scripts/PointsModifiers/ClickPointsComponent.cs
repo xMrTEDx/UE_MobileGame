@@ -5,6 +5,6 @@ using UnityEngine;
 public class ClickPointsComponent : MonoBehaviour {
 	public void Click()
 	{
-		ClickerGame.Instance.CoreClickerSystem.AddClickPoints();
+		ClickerGame.Instance.PointsSystem.AddClickPoints();
 	}
 }

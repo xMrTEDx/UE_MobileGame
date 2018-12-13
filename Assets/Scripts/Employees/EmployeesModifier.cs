@@ -8,7 +8,7 @@ public class EmployeesModifier : MonoBehaviour
     {
         if (ClickerGame.Instance.EmployeesSystem.CanHireEmployee)
         {
-            if (ClickerGame.Instance.CoreClickerSystem.BuySomething(ClickerGame.Instance.EmployeesSystem.CostOfNewEmployee))
+            if (ClickerGame.Instance.PointsSystem.BuySomething(ClickerGame.Instance.EmployeesSystem.CostOfNewEmployee))
                 ClickerGame.Instance.EmployeesSystem.HireEmployee();
 
             // dodac wynagrodzenie dla pracownika kasowane co miesiac

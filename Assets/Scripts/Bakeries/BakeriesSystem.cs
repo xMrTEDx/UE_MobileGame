@@ -41,9 +41,9 @@ public class BakeriesSystem : MonoBehaviour
     public void Ulepsz(BakeryUpgrade upgrade)
     {
         _numberOfWorkPlace += upgrade.additionalWorkPlaces;
-        ClickerGame.Instance.CoreClickerSystem.autoPointsManager.DodajMnoznikPunktow(upgrade.mnoznikPunktow);
+        ClickerGame.Instance.PointsSystem.autoPointsManager.DodajMnoznikPunktow(upgrade.mnoznikPunktow);
         if (upgrade.mnoznikCzasowy.Length > 0)
-            ClickerGame.Instance.CoreClickerSystem.autoPointsManager.DodajMnoznikPunktow(upgrade.mnoznikCzasowy[0].mnoznikPunktowCzasowy,upgrade.mnoznikCzasowy[0].sekundTrwaniaMnoznika);
+            ClickerGame.Instance.PointsSystem.autoPointsManager.DodajMnoznikPunktow(upgrade.mnoznikCzasowy[0].mnoznikPunktowCzasowy,upgrade.mnoznikCzasowy[0].sekundTrwaniaMnoznika);
 
         CalculateNewBakeryCosts();
         _bakeries[0].RecalculateAutoPoints();

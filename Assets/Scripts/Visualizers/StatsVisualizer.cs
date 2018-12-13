@@ -24,7 +24,7 @@ public class StatsVisualizer : MonoBehaviour
             "Employees count: " + EmployeesNumber() + "\n" +
 			"Employees training productivity: " + currentGame.EmployeesSystem.CurrentTrainingProductivity + "\n" +
             "Income every interval: " + Income() + "\n" +
-            "Points added by click: " + currentGame.CoreClickerSystem.clickPointsManager.LiczbaPunktowPrzyKliknieciu * currentGame.CoreClickerSystem.clickPointsManager.MnoznikPunktowPrzyKliknieciu;
+            "Points added by click: " + currentGame.PointsSystem.clickPointsManager.LiczbaPunktowPrzyKliknieciu * currentGame.PointsSystem.clickPointsManager.MnoznikPunktowPrzyKliknieciu;
 
             statsText.text = text;
         }
@@ -43,6 +43,6 @@ public class StatsVisualizer : MonoBehaviour
     }
     float Income()
     {
-        return ClickerGame.Instance.CoreClickerSystem.autoPointsManager.LiczbaPunktowWPuli * ClickerGame.Instance.CoreClickerSystem.autoPointsManager.MnoznikPunktowWPuli;
+        return ClickerGame.Instance.PointsSystem.autoPointsManager.LiczbaPunktowWPuli * ClickerGame.Instance.PointsSystem.autoPointsManager.MnoznikPunktowWPuli;
     }
 }

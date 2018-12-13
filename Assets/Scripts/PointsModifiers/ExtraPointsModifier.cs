@@ -6,6 +6,6 @@ public class ExtraPointsModifier : MonoBehaviour {
 
 	public void AddExtraPoints(float value)
 	{
-		ClickerGame.Instance.CoreClickerSystem.AddExtraPoints(value);
+		ClickerGame.Instance.PointsSystem.AddExtraPoints(value);
 	}
 }

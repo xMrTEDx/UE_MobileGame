@@ -28,12 +28,12 @@ public class AutoPointsModifier : MonoBehaviour
     #region points operations
     public void AddAutoPoints(float addedValue) //dodanie do puli dodawanej co interwal
     {
-        ClickerGame.Instance.CoreClickerSystem.autoPointsManager.DodajLiczbePunktow(addedValue);
+        ClickerGame.Instance.PointsSystem.autoPointsManager.DodajLiczbePunktow(addedValue);
         _autoPoints += addedValue;
     }
     public void AddAutoPoints(float addedValue, int time) //dodanie do puli dodawanej co interwal (czasowo)
     {
-        ClickerGame.Instance.CoreClickerSystem.autoPointsManager.DodajLiczbePunktow(addedValue, time);
+        ClickerGame.Instance.PointsSystem.autoPointsManager.DodajLiczbePunktow(addedValue, time);
         // nie zwiększam _autoPoints bo i tak zaraz wróci do poprzedniego stanu       
     }
 
@@ -53,12 +53,12 @@ public class AutoPointsModifier : MonoBehaviour
     #region multipler operations
     public void AddPointsMultipler(float multiplingValue) //dodanie do mnoznika czasowy (przemnozenie)
     {
-        ClickerGame.Instance.CoreClickerSystem.autoPointsManager.DodajMnoznikPunktow(multiplingValue);
+        ClickerGame.Instance.PointsSystem.autoPointsManager.DodajMnoznikPunktow(multiplingValue);
         _globalPointsMultipler *= multiplingValue;
     }
     public void AddPointsMultipler(float multiplingValue, int time) //dodanie do mnoznika (przemnozenie) - czasowo
     {
-        ClickerGame.Instance.CoreClickerSystem.autoPointsManager.DodajMnoznikPunktow(multiplingValue, time);
+        ClickerGame.Instance.PointsSystem.autoPointsManager.DodajMnoznikPunktow(multiplingValue, time);
         // nie zmieniam _globalPointsMultipler bo i tak zaraz wróci do poprzedniego stanu
     }
     public void ChangePointsMultipler(float newValue) //zmiana mnoznika

@@ -28,7 +28,7 @@ public class BakeriesUpgradesWindow : MonoBehaviour
 
             referencjeObiektu.button.onClick.AddListener(() =>
             {
-                if (ClickerGame.Instance.CoreClickerSystem.BuySomething(upgrade.cost))
+                if (ClickerGame.Instance.PointsSystem.BuySomething(upgrade.cost))
                 {
                     ClickerGame.Instance.BakeriesSystem.Ulepsz(upgrade);
                     Destroy(obiektUlepszenia);
