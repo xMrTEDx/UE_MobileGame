@@ -11,15 +11,32 @@ public class CreditWindow : Singleton<CreditWindow>
     public Button wezPozyczke;
     public void Init()
     {
-		sliderRaty.value = 0;
-		sliderRaty.value = 0;
+        sliderRaty.value = 0;
+        sliderRaty.value = 0;
     }
     public void WezPozyczke()
     {
-        //TODO wez pozyczke
-        Debug.Log(string.Format("Pozyczka, wartosc: {0} \t liczba rat: {1}", sliderPozyczka.value, sliderRaty.value));
+        if (sliderRaty.value != 0 && sliderRaty.value != 0)
+        {
 
-        CloseWindow();
+            if (ClickerGame.Instance.ChargesSystem.TakeCredit((int)sliderPozyczka.value, (int)sliderRaty.value))
+            {
+                Debug.Log(string.Format("Wzieta pozyczka, wartosc: {0} \t liczba rat: {1}", sliderPozyczka.value, sliderRaty.value));
+                CloseWindow();
+            }
+            else
+            {
+                //wyswietl uzytkownikowi ze nie moze wziasc kredytu
+            }
+        }
+		else
+		{
+			Debug.Log("Podano zle wartosci");
+			//powiedz o tym uzytkownikowi
+		}
+
+
+
     }
     public void CloseWindow()
     {

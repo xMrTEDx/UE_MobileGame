@@ -43,15 +43,17 @@ public class ChargesSystem : MonoBehaviour
         return charges;
     }
 
-    public void TakeCredit(int moneyToGet, int installments)
+    public bool TakeCredit(int moneyToGet, int installments)
     {
         if (credits.Count < 3)
         {
             credits.Add(new Credit(moneyToGet, installments));
+            return true;
         }
         else
         {
             Debug.Log("Gdzie tam biedaku, spłać poprzednie kredyty!");
+            return false;
         }
     }
 
