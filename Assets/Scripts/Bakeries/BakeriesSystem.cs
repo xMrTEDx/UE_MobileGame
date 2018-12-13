@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEngine;
 
 [HelpURL("https://docs.google.com/document/d/1e54SA8SEdzZv_b1uNvhh8DC1xmB66xVNYXVDytSeBYA/edit")]
-public class BakeriesSystem : GamePiece
+public class BakeriesSystem : MonoBehaviour
 {
     List<Bakery> _bakeries = new List<Bakery>(); //lista wszystkich piekarn
 

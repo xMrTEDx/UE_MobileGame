@@ -11,11 +11,11 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 			if (_instance == null)
 			{
 				string singletonPath = "Singletons/"+typeof(T).ToString();
-				Object singleton = Instantiate(Resources.Load(singletonPath));
+				GameObject singleton = (GameObject)Instantiate(Resources.Load(singletonPath));
                 Debug.Log(singleton);
 
 				if(singleton)
-					_instance = (T)singleton;
+					_instance = singleton.GetComponent<T>();
 
 				DontDestroyOnLoad(singleton);
 
