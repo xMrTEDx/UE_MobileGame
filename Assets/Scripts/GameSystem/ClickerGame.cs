@@ -8,7 +8,7 @@ public class ClickerGame : Singleton<ClickerGame>
 {
     #region private fields
     private ClickerSystems clickerSystems;
-    private PointsSystem coreClickerSystem;
+    private PointsSystem pointsSystem;
     private BakeriesSystem bakeriesSystem;
     private EmployeesSystem employeesSystem;
     private DataSystem dataSystem;
@@ -23,7 +23,7 @@ public class ClickerGame : Singleton<ClickerGame>
     {
         get
         {
-            return coreClickerSystem;
+            return pointsSystem;
         }
     }
 
@@ -171,7 +171,7 @@ public class ClickerGame : Singleton<ClickerGame>
     }
     private void DoClockActions() //metody wykonywane co kazdy cykl zegara
     {
-        coreClickerSystem.AddAutoPoints();
+        pointsSystem.AddAutoPoints();
         ClickerGame.Instance.DataSystem.ChangeDay();
         ClickerGame.Instance.ChargesSystem.TakeCharges(); //wazna kolejnosc! najpierw zmiana dnia, a pozniej pobieranie oplat
     }
@@ -180,7 +180,7 @@ public class ClickerGame : Singleton<ClickerGame>
     void InstantiateGame()
     {
         clickerSystems = FindReferenceOrAdd<ClickerSystems>("Systems", GetComponent<Transform>());
-        coreClickerSystem = FindReferenceOrLoad<PointsSystem>(clickerSystems.GetComponent<Transform>());
+        pointsSystem = FindReferenceOrLoad<PointsSystem>(clickerSystems.GetComponent<Transform>());
         bakeriesSystem = FindReferenceOrLoad<BakeriesSystem>(clickerSystems.GetComponent<Transform>());
         employeesSystem = FindReferenceOrLoad<EmployeesSystem>(clickerSystems.GetComponent<Transform>());
         dataSystem = FindReferenceOrLoad<DataSystem>(clickerSystems.GetComponent<Transform>());
@@ -200,7 +200,7 @@ public class ClickerGame : Singleton<ClickerGame>
     void DestroySystems()
     {
         if(clickerSystems) Destroy(clickerSystems);
-        if(coreClickerSystem) Destroy(coreClickerSystem);
+        if(pointsSystem) Destroy(pointsSystem);
         if(bakeriesSystem) Destroy(bakeriesSystem);
         if(employeesSystem) Destroy(employeesSystem);
         if(dataSystem) Destroy(dataSystem);
@@ -212,7 +212,7 @@ public class ClickerGame : Singleton<ClickerGame>
     void InitAll()
     {
         Init();
-        coreClickerSystem.Init();
+        pointsSystem.Init();
         bakeriesSystem.Init();
         employeesSystem.Init();
         dataSystem.Init();
