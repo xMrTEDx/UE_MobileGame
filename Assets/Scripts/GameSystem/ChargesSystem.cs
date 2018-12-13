@@ -38,6 +38,7 @@ public class ChargesSystem : MonoBehaviour
     {
         if (credits.Count < 3)
         {
+            ClickerGame.Instance.PointsSystem.AddPoints(moneyToGet);
             credits.Add(new Credit(moneyToGet, installments));
             return true;
         }

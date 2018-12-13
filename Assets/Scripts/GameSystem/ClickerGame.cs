@@ -124,7 +124,7 @@ public class ClickerGame : Singleton<ClickerGame>
     
     void Init()
     {
-        CreditWindow.Instance.ShowCreditWindow(false);
+        //CreditWindow.Instance.ShowCreditWindow(false);
     }
 
 

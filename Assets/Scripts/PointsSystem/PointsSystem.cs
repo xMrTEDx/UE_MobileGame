@@ -46,6 +46,16 @@ public class PointsSystem : MonoBehaviour
     {
         _gamePoints += cost;
     }
+    public void AddPoints(float money)
+    {
+        _gamePoints += money;
+    }
+
+    public void RemovePoints(float money)
+    {
+        _gamePoints = money;
+    }
+
 
     public void AddAutoPoints()
     {
