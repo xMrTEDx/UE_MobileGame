@@ -100,6 +100,7 @@ public class ClickerGame : Singleton<ClickerGame>
         bakeriesSystem = FindReferenceOrLoad<BakeriesSystem>(clickerSystems.GetComponent<Transform>());
         employeesSystem = FindReferenceOrLoad<EmployeesSystem>(clickerSystems.GetComponent<Transform>());
         dataSystem = FindReferenceOrLoad<DataSystem>(clickerSystems.GetComponent<Transform>());
+        chargesSystem = FindReferenceOrLoad<ChargesSystem>(clickerSystems.GetComponent<Transform>());
         gameSettings = FindReferenceOrLoad<GameSettings>(GetComponent<Transform>());
         mainCanvasClicker = FindObjectOfType<MainCanvasClicker>();
         if (!mainCanvasClicker) Instantiate(Resources.Load("MainCanvasClicker"));

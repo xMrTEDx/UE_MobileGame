@@ -98,7 +98,7 @@ public class CoreClickerSystem : GamePiece
             yield return new WaitForSeconds(ClickerGame.Instance.GameSettings.timerSettings.TimeInterval);
             AddAutoPoints();
             ClickerGame.Instance.DataSystem.ChangeDay();
-            if(ClickerGame.Instance.ChargesSystem.CheckCharges())
+            if(ClickerGame.Instance.ChargesSystem.CheckCharges() == true)
             {
                 _gamePoints -= ClickerGame.Instance.ChargesSystem.TakeCharges();
             }
