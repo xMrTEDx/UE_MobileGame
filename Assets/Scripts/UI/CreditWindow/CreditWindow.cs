@@ -10,39 +10,28 @@ public class CreditWindow : Singleton<CreditWindow>
     public Slider sliderRaty;
     public Button wezPozyczke;
     public Button powrot;
-    public void ShowCreditWindow(bool mozliwoscWyjscia)
+    public void ShowCreditWindow()
     {
         ClickerGame.Instance.PauseGame();
 
-        sliderRaty.value = 0;
-        sliderRaty.value = 0;
-
-        if (!mozliwoscWyjscia)
-            Destroy(powrot.gameObject);
+        sliderRaty.minValue = 6;
+        sliderRaty.maxValue = 60;
+        sliderRaty.value = 6;
+        sliderPozyczka.value = 60000;
+        sliderPozyczka.minValue = 10000;
+        sliderPozyczka.maxValue = 100000;
     }
     public void WezPozyczke()
     {
-        if (sliderRaty.value != 0 && sliderRaty.value != 0)
+        if (ClickerGame.Instance.ChargesSystem.TakeCredit((int)sliderPozyczka.value, (int)sliderRaty.value))
         {
-
-            if (ClickerGame.Instance.ChargesSystem.TakeCredit((int)sliderPozyczka.value, (int)sliderRaty.value))
-            {
-                Debug.Log(string.Format("Wzieta pozyczka, wartosc: {0} \t liczba rat: {1}", sliderPozyczka.value, sliderRaty.value));
-                CloseWindow();
-            }
-            else
-            {
-                //wyswietl uzytkownikowi ze nie moze wziasc kredytu
-            }
+            Debug.Log(string.Format("Wzieta pozyczka, wartosc: {0} \t liczba rat: {1}", sliderPozyczka.value, sliderRaty.value));
+            CloseWindow();
         }
         else
         {
-            Debug.Log("Podano zle wartosci");
-            //powiedz o tym uzytkownikowi
+            //wyswietl uzytkownikowi ze nie moze wziasc kredytu
         }
-
-
-
     }
     public void CloseWindow()
     {

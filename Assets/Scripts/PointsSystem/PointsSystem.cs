@@ -27,6 +27,7 @@ public class PointsSystem : MonoBehaviour
     {
         clickPointsManager = GetComponent<ClickPoints>();
         autoPointsManager = GetComponent<AutoPoints>();
+        _gamePoints = 3000;
     }
 
     public bool BuySomething(float cost)

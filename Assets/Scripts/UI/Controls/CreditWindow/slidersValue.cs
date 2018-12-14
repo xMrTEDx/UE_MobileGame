@@ -9,9 +9,11 @@ public class slidersValue : MonoBehaviour {
 	public Slider slider;
 	void Start () {
 		text = GetComponent<Text>();
-	}
-	public void AktualizujWartosc()
+        AktualizujWartosc();
+    }
+    public void AktualizujWartosc()
 	{
 		text.text = slider.value.ToString();
+        Debug.Log("Jakie słowa");
 	}
 }
