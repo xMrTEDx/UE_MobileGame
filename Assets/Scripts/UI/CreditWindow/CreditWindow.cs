@@ -6,26 +6,26 @@ using UnityEngine.UI;
 public class CreditWindow : Singleton<CreditWindow>
 {
 
-    public Slider sliderPozyczka;
-    public Slider sliderRaty;
-    public Button wezPozyczke;
-    public Button powrot;
+    public Slider sliderLoan;
+    public Slider sliderInstallments;
+    public Button getLoan;
+    public Button back;
     public void ShowCreditWindow()
     {
         ClickerGame.Instance.PauseGame();
 
-        sliderRaty.minValue = 6;
-        sliderRaty.maxValue = 60;
-        sliderRaty.value = 6;
-        sliderPozyczka.value = 60000;
-        sliderPozyczka.minValue = 10000;
-        sliderPozyczka.maxValue = 100000;
+        sliderInstallments.minValue = 6;
+        sliderInstallments.maxValue = 60;
+        sliderInstallments.value = 6;
+        sliderLoan.value = 10000;
+        sliderLoan.minValue = 10000;
+        sliderLoan.maxValue = 100000;
     }
-    public void WezPozyczke()
+    public void GetLoan()
     {
-        if (ClickerGame.Instance.ChargesSystem.TakeCredit((int)sliderPozyczka.value, (int)sliderRaty.value))
+        if (ClickerGame.Instance.ChargesSystem.TakeCredit((int)sliderLoan.value, (int)sliderInstallments.value))
         {
-            Debug.Log(string.Format("Wzieta pozyczka, wartosc: {0} \t liczba rat: {1}", sliderPozyczka.value, sliderRaty.value));
+            Debug.Log(string.Format("Wzieta pozyczka, wartosc: {0} \t liczba rat: {1}", sliderLoan.value, sliderInstallments.value));
             CloseWindow();
         }
         else

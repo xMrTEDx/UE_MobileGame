@@ -39,10 +39,6 @@ public class PointsSystem : MonoBehaviour
         }
         else return false;
     }
-    public void PayCharges(float value)
-    {
-        _gamePoints -= value;
-    }
     public void SellSomething(float cost)
     {
         _gamePoints += cost;
@@ -54,7 +50,7 @@ public class PointsSystem : MonoBehaviour
 
     public void RemovePoints(float money)
     {
-        _gamePoints = money;
+        _gamePoints -= money;
     }
 
 
