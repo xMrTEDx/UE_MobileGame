@@ -12,35 +12,33 @@ Koszta działalności gospodarczej:
 - ZUS - pierwsze 2 lata 250, potem 690 (tylko za nas)
   - umowa o pracę:
     - koszt każdego pracownika przy 1500 zł netto:
-      - ubezpieczenie emerytalne - 201 zł
-      - ubezpieczenie rentowe - 31 zł
-      - ubezpieczenie chorobowe - 50 zł
-      - ubezpieczenie zdrowotne - 160 zł
-      - zaliczka na podatek - 116 zł
+      - ubezpieczenie emerytalne - 201 zł - 13 %
+      - ubezpieczenie rentowe - 31 zł - 2 %
+      - ubezpieczenie chorobowe - 50 zł - 3 %
+      - ubezpieczenie zdrowotne - 160 zł - 10 %
+      - zaliczka na podatek - 116 zł - 7 %
       - brutto - 2057 zł
     - koszt dla pracodawcy:
       - wynagrodzenie pracownika - 2057 zł
-      - ubezpieczenie emerytalne - 201 zł
-      - ubezpieczenie rentowe - 134 zł
-      - ubezpieczenie wypadkowe - 37 zł
-      - fundusz pracy - 50 zł
-      - FGŚP - 2 zł
+      - ubezpieczenie emerytalne - 201 zł - 13 %
+      - ubezpieczenie rentowe - 134 zł - 9 %
+      - ubezpieczenie wypadkowe - 37 zł - 2 %
+      - fundusz pracy - 50 zł - 3 %
       - łącznie - 2481
   - umowa zlecenie:
     - koszt każdego pracownika przy 1500 zł netto:
-      - ubezpieczenie emerytalne - 196 zł
-      - ubezpieczenie rentowe - 30 zł
-      - ubezpieczenie chorobowe - 0 zł
-      - ubezpieczenie zdrowotne - 160 zł
-      - zaliczka na podatek - 118 zł
+      - ubezpieczenie emerytalne - 196 zł - 13 %
+      - ubezpieczenie rentowe - 30 zł - 2 %
+      - ubezpieczenie chorobowe - 0 zł - 
+      - ubezpieczenie zdrowotne - 160 zł - 10 %
+      - zaliczka na podatek - 118 zł - 7 %
       - brutto - 2004 zł
     - koszt dla pracodawcy:
       - wynagrodzenie pracownika - 2004 zł
-      - ubezpieczenie emerytalne - 196 zł
-      - ubezpieczenie rentowe - 130 zł
-      - ubezpieczenie wypadkowe - 36 zł
+      - ubezpieczenie emerytalne - 196 zł - 13 %
+      - ubezpieczenie rentowe - 130 zł - 8 %
+      - ubezpieczenie wypadkowe - 36 zł - 2 %
       - fundusz pracy - 0 zł
-      - FGŚP - 2 zł
       - łącznie - 2368 zł
 - lokal
 - media
