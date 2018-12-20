@@ -17,15 +17,15 @@ public class CreditWindow : Singleton<CreditWindow>
         sliderInstallments.minValue = 6;
         sliderInstallments.maxValue = 60;
         sliderInstallments.value = 6;
-        sliderLoan.value = 10000;
-        sliderLoan.minValue = 10000;
-        sliderLoan.maxValue = 100000;
+        sliderLoan.value = 10;
+        sliderLoan.minValue = 10;
+        sliderLoan.maxValue = 100;
     }
     public void GetLoan()
     {
-        if (ClickerGame.Instance.ChargesSystem.TakeCredit((int)sliderLoan.value, (int)sliderInstallments.value))
+        if (ClickerGame.Instance.ChargesSystem.TakeCredit((int)sliderLoan.value * 1000, (int)sliderInstallments.value))
         {
-            Debug.Log(string.Format("Wzieta pozyczka, wartosc: {0} \t liczba rat: {1}", sliderLoan.value, sliderInstallments.value));
+            Debug.Log(string.Format("Wzieta pozyczka, wartosc: {0} \t liczba rat: {1}", sliderLoan.value * 1000, sliderInstallments.value));
             CloseWindow();
         }
         else

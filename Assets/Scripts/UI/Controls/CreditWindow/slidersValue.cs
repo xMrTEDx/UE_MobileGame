@@ -13,7 +13,14 @@ public class slidersValue : MonoBehaviour {
     }
     public void AktualizujWartosc()
 	{
-		text.text = slider.value.ToString();
+        if(slider.maxValue == 100)
+        {
+            text.text = (slider.value * 1000).ToString();
+        }
+        else
+        {
+            text.text = slider.value.ToString();
+        }
         Debug.Log("Jakie słowa");
 	}
 }
