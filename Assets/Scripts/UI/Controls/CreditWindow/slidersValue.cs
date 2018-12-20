@@ -21,6 +21,5 @@ public class slidersValue : MonoBehaviour {
         {
             text.text = slider.value.ToString();
         }
-        Debug.Log("Jakie słowa");
 	}
 }

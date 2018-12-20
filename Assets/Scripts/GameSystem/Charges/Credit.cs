@@ -52,7 +52,7 @@ class Credit
         _moneyEarned = moneyToGet;
         _numberOfInstallments = installments;
 
-        for(int i = 0; i < _moneyEarned/20000; i++)
+        for(int i = 1; i < _moneyEarned/20000; i++)
         {
             _interest -= 0.02f;
         }

@@ -66,11 +66,12 @@ public class ChargesSystem : MonoBehaviour
             money += c.installment;
             c.PayInstallment();
         }
-        foreach(Credit c in credits)    // musi być tak, bo wywali błąd
+        for (int i = 0; i < credits.Count; i++)
         {
-            if (c.numberOfInstallments == 0)
+            if(credits[i].numberOfInstallments == 0)
             {
-                credits.Remove(c);
+                credits.RemoveAt(i);
+                i--;
             }
         }
         return money;
