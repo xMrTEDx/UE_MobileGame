@@ -6,7 +6,16 @@ using UnityEngine;
 
 public class ChargesSystem : MonoBehaviour
 {
-    List<Credit> credits = new List<Credit>();
+    List<Credit> credits;
+    public Contracts contract;
+
+    public void Init()
+    {
+        credits = new List<Credit>();
+        contract = new Contracts();
+
+        contract.calculateCosts();
+    }
 
     public float TakeCharges()
     {
@@ -18,9 +27,9 @@ public class ChargesSystem : MonoBehaviour
                 Debug.Log("Opłata za czynsz: " + ClickerGame.Instance.BakeriesSystem.Bakeries.Count * 2000);
 
                 break;
-            case 10:
-                Debug.Log("Wypłaty pracownicze: " + ClickerGame.Instance.EmployeesSystem.NumberOfEmployees * 1500);
-
+            case 12:
+                charges = contract.OverallCosts * ClickerGame.Instance.EmployeesSystem.NumberOfEmployees;
+                Debug.Log("Wypłaty pracownicze: " + charges);
                 break;
             case 15:
                 charges = PayInstallments();

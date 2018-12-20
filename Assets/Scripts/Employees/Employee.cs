@@ -5,7 +5,6 @@ using UnityEngine;
 [HelpURL("https://docs.google.com/document/d/1LJ0Bm-kiHVCUED1aXR4eYYMeoHanxb11K6mofgrlbIU/edit")]
 public class Employee : MonoBehaviour
 {
-
     private float _experienceProductivity; //wydajnosc z doswiadczenia (dla kazdego pracownika osobno)
     public float ExperienceProductivity
     {

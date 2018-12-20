@@ -7,7 +7,26 @@ using System.Linq;
 public class EmployeesSystem : MonoBehaviour
 {
     private int _numberOfEmployees = 0;
+    private float salary = 0;
     private float _currentTrainingProductivity = 0; //wydajnosc ze szkolen (wspolne dla wszystkich pracownikow)
+    public int NumberOfEmployees
+    {
+        get
+        {
+            return _numberOfEmployees;
+        }
+    }
+    public float Salary
+    {
+        get
+        {
+            return salary;
+        }
+        set
+        {
+            salary = value;
+        }
+    }
     public float CurrentTrainingProductivity
     {
         get
@@ -22,13 +41,6 @@ public class EmployeesSystem : MonoBehaviour
                 _currentTrainingProductivity = 0;
             else _currentTrainingProductivity = value;
 
-        }
-    }
-    public int NumberOfEmployees
-    {
-        get
-        {
-            return _numberOfEmployees;
         }
     }
     public bool CanHireEmployee
@@ -53,6 +65,7 @@ public class EmployeesSystem : MonoBehaviour
     public void Init() //uzywac zamiast start
     {
         CalculateNewEmployeeCosts();
+        salary = 1500;
     }
     public void Ulepsz(EmployeeUpgrade upgrade)
     {
