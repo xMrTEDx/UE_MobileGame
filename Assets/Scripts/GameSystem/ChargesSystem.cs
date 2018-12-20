@@ -27,7 +27,7 @@ public class ChargesSystem : MonoBehaviour
                 Debug.Log("Opłata za czynsz: " + ClickerGame.Instance.BakeriesSystem.Bakeries.Count * 2000);
 
                 break;
-            case 12:
+            case 10:
                 charges = contract.OverallCosts * ClickerGame.Instance.EmployeesSystem.NumberOfEmployees;
                 Debug.Log("Wypłaty pracownicze: " + charges);
                 break;

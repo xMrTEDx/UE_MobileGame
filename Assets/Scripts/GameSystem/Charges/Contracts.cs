@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Contracts
 {
-    private string contractType = "UoP";
+    private string contractType = "UZ";
     private float overallCosts = 0;
     public float OverallCosts
     {
