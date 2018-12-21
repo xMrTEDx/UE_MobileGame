@@ -5,7 +5,7 @@ using System.Text;
 
 class Credit
 {
-    private float _interest = 0.3f;             // oprocentowanie
+    private float _interest = 0.2f;             // oprocentowanie
     private float _installment = 0;            // rata
     private float _moneyEarned = 0;            // kwota, jaką dostajemy, maks 100k
     private float _moneyToPay = 0;             // kwota do zapłaty
@@ -52,9 +52,13 @@ class Credit
         _moneyEarned = moneyToGet;
         _numberOfInstallments = installments;
 
-        for(int i = 1; i < _moneyEarned/20000; i++)
+        for(int i = 1; i < _moneyEarned/10000; i++)
         {
-            _interest -= 0.02f;
+            _interest -= 0.01f;
+        }
+        for (int i = 1; i < installments / 12; i++)
+        {
+            _installment += 0.01f;
         }
 
         _moneyToPay = _moneyEarned + _moneyEarned * _interest;
