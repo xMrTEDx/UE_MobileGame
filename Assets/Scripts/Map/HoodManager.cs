@@ -36,20 +36,26 @@ public class HoodManager : MonoBehaviour {
         if (selectedHood.transform.childCount == 0)
         {
 
-            ////TO NIŻEJ TO FAKTYCZNE KUPIENIE PIEKARNI (skopiowane z BakeriesModifier)
-            //if (ClickerGame.Instance.PointsSystem.BuySomething(ClickerGame.Instance.BakeriesSystem.CostOfNewBakery))
-            //{
-            //    ClickerGame.Instance.BakeriesSystem.AddBakery();
-            //    ClickerGame.Instance.BakeriesSystem.Bakeries[markersAmount].hoodName = selectedHood.gameObject.name; //przypisuje nazwę dzielnicy do kupionej piekarni
-            //    markersAmount++;
+            //TO NIŻEJ TO FAKTYCZNE KUPIENIE PIEKARNI (skopiowane z BakeriesModifier)
+            if (ClickerGame.Instance.PointsSystem.BuySomething(ClickerGame.Instance.BakeriesSystem.CostOfNewBakery))
+            {
+                ClickerGame.Instance.BakeriesSystem.AddBakery();
 
-            //    //TUTAJ WSTAWIĆ NIESKOMENTOWANY KOD PONIŻEJ
-            //}
+                ClickerGame.Instance.BakeriesSystem.Bakeries[markersAmount].hoodName = selectedHood.gameObject.name; //przypisuje nazwę dzielnicy do kupionej piekarni
+                
+                Instantiate(Resources.Load("Marker"), selectedHood.transform.position, selectedHood.transform.rotation, selectedHood.transform);
 
 
-            Instantiate(Resources.Load("Marker"), selectedHood.transform.position, selectedHood.transform.rotation, selectedHood.transform);
-            Debug.Log(selectedHood.gameObject.name);
-            buyPanel.SetActive(false);
+                string nazwa = "Piekarnia w " + selectedHood.gameObject.name;
+                ClickerGame.Instance.BakeriesSystem.Bakeries[markersAmount].gameObject.GetComponentInChildren<Text>().text = nazwa;
+
+
+                buyPanel.SetActive(false);
+
+                markersAmount++;
+            }
+
+
         }
         else
             Debug.Log("Posiadasz już piekarnię w tej dzielnicy!");
