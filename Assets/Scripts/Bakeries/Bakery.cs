@@ -10,6 +10,8 @@ public class Bakery : MonoBehaviour
     //skrypt dołączony jako komponent do każdej piekarni
     private List<Employee> employeesInTheBakery = new List<Employee>();
     private float bakeryAttractiveness = 0;
+    public string hoodName = "";
+
     public List<Employee> EmployeesInTheBakery
     {
         get
