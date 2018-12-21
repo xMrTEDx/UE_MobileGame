@@ -9,11 +9,19 @@ public class Bakery : MonoBehaviour
 {
     //skrypt dołączony jako komponent do każdej piekarni
     private List<Employee> employeesInTheBakery = new List<Employee>();
+    private float bakeryAttractiveness = 0;
     public List<Employee> EmployeesInTheBakery
     {
         get
         {
             return employeesInTheBakery;
+        }
+    }
+    public float BakeryAttractiveness
+    {
+        get
+        {
+            return bakeryAttractiveness;
         }
     }
     AutoPointsModifier autoPointsModifier;
@@ -33,8 +41,6 @@ public class Bakery : MonoBehaviour
         {
             employeesInTheBakery.Add(employee);
             RecalculateAutoPoints();
-            
-
             return true;
         } else return false;
     }
@@ -45,7 +51,6 @@ public class Bakery : MonoBehaviour
             Destroy(employeesInTheBakery.Last().gameObject);
             employeesInTheBakery.Remove(employeesInTheBakery.Last());
             RecalculateAutoPoints();
-
             return true;
         } else return false;
     }

@@ -26,8 +26,6 @@ public class Contracts
         else
         {
             overallCosts = basicSalary + basicSalary * 0.58f;
-            Debug.Log(overallCosts);
-            Debug.Log(basicSalary);
         }
     }
 

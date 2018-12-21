@@ -8,13 +8,13 @@ public class ChargesSystem : MonoBehaviour
 {
     List<Credit> credits;
     public Contracts contract;
+    public float basicRent;
 
     public void Init()
     {
         credits = new List<Credit>();
         contract = new Contracts();
-
-        contract.calculateCosts();
+        basicRent = 2000;
     }
 
     public float TakeCharges()
@@ -28,6 +28,8 @@ public class ChargesSystem : MonoBehaviour
 
                 break;
             case 10:
+                ClickerGame.Instance.EmployeesSystem.ImproveExperienceProduktivity();
+                contract.calculateCosts();
                 charges = contract.OverallCosts * ClickerGame.Instance.EmployeesSystem.NumberOfEmployees;
                 Debug.Log("Wypłaty pracownicze: " + charges);
                 break;

@@ -162,6 +162,15 @@ public class EmployeesSystem : MonoBehaviour
         }
         return bakeries[index];
     }
-
-
+    public void ImproveExperienceProduktivity()
+    {
+        foreach (Bakery b in ClickerGame.Instance.BakeriesSystem.Bakeries)
+        {
+            foreach (Employee e in b.EmployeesInTheBakery)
+            {
+                e.ExperienceProductivity += 1;
+            }
+            b.RecalculateAutoPoints();
+        }
+    }
 }

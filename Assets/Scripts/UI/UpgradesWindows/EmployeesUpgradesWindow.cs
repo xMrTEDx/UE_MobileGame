@@ -30,8 +30,7 @@ public class EmployeesUpgradesWindow : MonoBehaviour {
                 if (ClickerGame.Instance.PointsSystem.BuySomething(upgrade.cost))
                 {
                     ClickerGame.Instance.EmployeesSystem.Ulepsz(upgrade);
-                    ClickerGame.Instance.EmployeesSystem.Salary += 50;
-                    ClickerGame.Instance.ChargesSystem.contract.calculateCosts();
+                    ClickerGame.Instance.EmployeesSystem.Salary += 50;                    
                     Destroy(obiektUlepszenia);
                     DodajUlepszenieNaScene();
                 }
