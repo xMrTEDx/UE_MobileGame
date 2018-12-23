@@ -44,6 +44,7 @@ public class BuyPanelManager : MonoBehaviour {
 
                 string nazwa = "Piekarnia w " + selectedDistrict.gameObject.name;
                 ClickerGame.Instance.BakeriesSystem.Bakeries[markersAmount].gameObject.GetComponentInChildren<Text>().text = nazwa;
+                selectedDistrict.GetComponent<SpriteRenderer>().material.color = Color.green;
 
 
                 buyPanel.SetActive(false);
