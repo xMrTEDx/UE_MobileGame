@@ -6,7 +6,7 @@ public class WindowComponent : MonoBehaviour {
 
 	public void ShowWindow()
 	{
-		ClickerGame.Instance.MainCanvasClicker.windowsManager.ShowWindow(this);
+		//ClickerGame.Instance.MainCanvasClicker.windowsManager.ShowWindow(this);
 		//Debug.Log("Clicked button: show window");
 	}
 }
