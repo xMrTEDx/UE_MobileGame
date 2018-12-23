@@ -42,7 +42,7 @@ public class HoodManager : MonoBehaviour {
                 ClickerGame.Instance.BakeriesSystem.AddBakery();
 
                 ClickerGame.Instance.BakeriesSystem.Bakeries[markersAmount].hoodName = selectedHood.gameObject.name; //przypisuje nazwę dzielnicy do kupionej piekarni
-                
+
                 Instantiate(Resources.Load("Marker"), selectedHood.transform.position, selectedHood.transform.rotation, selectedHood.transform);
 
 
@@ -64,7 +64,7 @@ public class HoodManager : MonoBehaviour {
 
     public void SelectHood(Image hood)
     {
-        if(buyPanel.activeSelf == false)
+        if (buyPanel.activeSelf == false)
             buyPanel.gameObject.SetActive(true);
         selectedHood = hood;
     }
