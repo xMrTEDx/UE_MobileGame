@@ -217,6 +217,7 @@ public class ClickerGame : Singleton<ClickerGame>
         employeesSystem.Init();
         dataSystem.Init();
         chargesSystem.Init();
+        mainCanvasClicker.Init();
     }
 
     T FindReferenceOrAdd<T>(String name, Transform parent) where T : Component

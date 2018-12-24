@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class BuyPanelManager : MonoBehaviour {
 
-    GameObject buyPanel;
+    public GameObject buyPanel;
 
     GameObject selectedDistrict;
 
@@ -13,8 +13,7 @@ public class BuyPanelManager : MonoBehaviour {
 
     private void Awake()
     {
-        buyPanel = GameObject.Find("BuyPanel");
-        buyPanel.SetActive(false);
+        
     }
 
     public void EnableBuyPanel(GameObject district)
