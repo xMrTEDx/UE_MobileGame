@@ -1,22 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.UI;
 
 public class Window : MonoBehaviour {
 
+	//[Header("Parent")]
+	private Window windowParent;
+	//[Header("Events")]
 	public UnityEvent e_OnEnableWindow;
 	public UnityEvent e_OnDisableWindow;
-	WindowsInitializer windowsInitializer;
-	void Start()
+	public void Init()
 	{
-		windowsInitializer = GetComponentInParent<WindowsInitializer>();
+		windowParent = GetComponentsInParent<Window>().ToList().FirstOrDefault(x => x != this);
+		// chce uzyskac rodzica z komponentem Window
+		// GetComponentInParent zwraca też TEN obiekt, gdyż on też zawiera komponent Window
+		// dlatego pobieram wszystkich rodziców i wybieram pierwszego który jest różny od TEGO obiektu
 	}
 	public void EnableWindow()
 	{
+		ClickerGame.Instance.MainCanvasClicker.windowsManager.DisableAllWindows();
+		EnableParentWindow();
 		gameObject.SetActive(true);
-		SelectFirstSelectable();
 		e_OnEnableWindow.Invoke();
 	}
 	public void DisableWindow()
@@ -24,17 +30,13 @@ public class Window : MonoBehaviour {
 		gameObject.SetActive(false);
 		e_OnDisableWindow.Invoke();
 	}
-	private void SelectFirstSelectable()
+	public void EnableParentWindow()
 	{
-		Selectable firstSelectable = GetComponentInChildren<Selectable>();
-		if(firstSelectable) firstSelectable.Select();
-	}
-	public void CloseWindow()
-	{
-		windowsInitializer.RemoveWindowFromStack();
-	}
-	public void ShowWindow(string windowID)
-	{
-		windowsInitializer.AddWindowToStack(windowID);
+		if(windowParent)
+		{
+			windowParent.EnableWindow();
+			windowParent.EnableParentWindow();
+		}
+			
 	}
 }

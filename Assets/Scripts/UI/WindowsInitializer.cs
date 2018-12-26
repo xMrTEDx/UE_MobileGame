@@ -8,10 +8,10 @@ using UnityEngine.UI;
 public class WindowsInitializer : MonoBehaviour
 {
 
-    List<Window> windows;
+    List<WindowButtonsList> windows;
     public ControlsContainer controlsContainer; //contain UI prefabs like buttons etc.
     [Space]
-    public List<Window> windowsStack;
+    public List<WindowButtonsList> windowsStack;
 
     void Start()
     {
@@ -19,7 +19,7 @@ public class WindowsInitializer : MonoBehaviour
     }
     public void Init()
     {
-        windows = GetComponentsInChildren<Window>().ToList();
+        windows = GetComponentsInChildren<WindowButtonsList>().ToList();
 
         if (windows != null && windows.Count > 0)
             windowsStack.Add(windows[0]);
@@ -62,7 +62,7 @@ public class WindowsInitializer : MonoBehaviour
         Type windowType = GetWindowType(windowID);
         if (windowType != null)
         {
-            Window windowToAdd = null;
+            WindowButtonsList windowToAdd = null;
             foreach (var item in windows)
                 if (item.GetComponent(windowType))
                     windowToAdd = item;

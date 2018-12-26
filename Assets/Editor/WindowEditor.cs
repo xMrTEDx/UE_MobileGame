@@ -1,14 +1,14 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-[CustomEditor(typeof(WindowComponent)),CanEditMultipleObjects]
-public class WindowComponentEditor : Editor {
+[CustomEditor(typeof(Window)),CanEditMultipleObjects]
+public class WindowEditor : Editor {
 
 	public override void OnInspectorGUI()
 	{
 		base.DrawDefaultInspector();
 
-		WindowComponent myScript = (WindowComponent)target;
+		Window myScript = (Window)target;
         EditorGUILayout.BeginHorizontal();
 		if(GUILayout.Button("Enable"))
         {
