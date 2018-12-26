@@ -9,10 +9,19 @@ public class WindowsManager : MonoBehaviour {
 	public void Init()
 	{
 		_windows = GetComponentsInChildren<WindowComponent>(true);
-		DisableAllWindows();
+		ShowAllWindows();
 		InitAllWindows();
+		DisableAllWindows();
 		
 		if(startWindow) startWindow.EnableWindow();
+	}
+
+	void ShowAllWindows()
+	{
+		foreach(var item in _windows)
+		{
+			item.gameObject.SetActive(true);
+		}
 	}
 
 	public void DisableAllWindows()
