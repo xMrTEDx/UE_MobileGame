@@ -5661,6 +5661,8 @@ MonoBehaviour:
   employeesParent: {fileID: 224545067752816064}
   dataText: {fileID: 114936258355555250}
   windowsManager: {fileID: 114541084079924944}
+  bakeriesUpgradesWindow: {fileID: 114795563434928746}
+  employeesUpgradesWindow: {fileID: 114610825299098688}
 --- !u!114 &114893814449359826
 MonoBehaviour:
   m_ObjectHideFlags: 1

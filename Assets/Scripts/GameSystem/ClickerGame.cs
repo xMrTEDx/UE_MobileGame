@@ -191,11 +191,6 @@ public class ClickerGame : Singleton<ClickerGame>
         eventSystem = FindObjectOfType<EventSystem>();
         if (!eventSystem) Instantiate(Resources.Load("EventSystem"));
 
-        BakeriesUpgradesWindow bakeriesUpgradesWindow = mainCanvasClicker.GetComponentInChildren<BakeriesUpgradesWindow>();
-        if (bakeriesUpgradesWindow) bakeriesUpgradesWindow.Init();
-
-        EmployeesUpgradesWindow employeesUpgradesWindow = mainCanvasClicker.GetComponentInChildren<EmployeesUpgradesWindow>();
-        if (employeesUpgradesWindow) employeesUpgradesWindow.Init();
     }
     void DestroySystems()
     {
