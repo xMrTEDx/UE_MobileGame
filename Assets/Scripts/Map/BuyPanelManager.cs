@@ -6,26 +6,24 @@ using UnityEngine.UI;
 public class BuyPanelManager : MonoBehaviour {
 
     public GameObject buyPanel;
+    public Text selectedDistrictText;
+
 
     GameObject selectedDistrict;
 
     int markersAmount = 1;
 
-    private void Awake()
-    {
-        
-    }
 
     public void EnableBuyPanel(GameObject district)
     {
         if (buyPanel.activeSelf == false)
             buyPanel.SetActive(true);
         selectedDistrict = district;
+        selectedDistrictText.text = "Selected district: " + selectedDistrict.name;
     }
 
     public void RemoveBakeryFromHood()
     {
-        Debug.Log("metoda");
         if (selectedDistrict.transform.childCount > 0)
         {
             if (ClickerGame.Instance.BakeriesSystem.RemoveBakery(selectedDistrict.name))
@@ -34,6 +32,7 @@ public class BuyPanelManager : MonoBehaviour {
                 ClickerGame.Instance.PointsSystem.SellSomething(ClickerGame.Instance.BakeriesSystem.CostOfNewBakery / 2);
 
                 Destroy(selectedDistrict.transform.GetChild(0).gameObject); //usuwanie znacznika
+                selectedDistrict.GetComponent<SpriteRenderer>().material.color = new Color(1.0f, 1.0f, 1.0f);
                 markersAmount--;
             }
             else
@@ -47,6 +46,7 @@ public class BuyPanelManager : MonoBehaviour {
 
     public void BuyBakeryInHood()
     {
+        Debug.Log(selectedDistrict.GetComponent<SpriteRenderer>().material.color);
         //Sprawdza czy w dzielnicy jest już piekarnia
         if (selectedDistrict.transform.childCount == 0)
         {
