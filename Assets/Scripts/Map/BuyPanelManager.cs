@@ -21,7 +21,27 @@ public class BuyPanelManager : MonoBehaviour {
         if (buyPanel.activeSelf == false)
             buyPanel.SetActive(true);
         selectedDistrict = district;
-        Debug.Log("wybrana dzielnica : " + selectedDistrict.name);
+    }
+
+    public void RemoveBakeryFromHood()
+    {
+        Debug.Log("metoda");
+        if (selectedDistrict.transform.childCount > 0)
+        {
+            if (ClickerGame.Instance.BakeriesSystem.RemoveBakery(selectedDistrict.name))
+            {
+                Debug.Log("sprzedano piekarnie");
+                ClickerGame.Instance.PointsSystem.SellSomething(ClickerGame.Instance.BakeriesSystem.CostOfNewBakery / 2);
+
+                Destroy(selectedDistrict.transform.GetChild(0).gameObject); //usuwanie znacznika
+                markersAmount--;
+            }
+            else
+            {
+                Debug.Log("Nie można sprzedać ostatniej piekarni mistrzu");
+                // poinformuj gracza
+            }
+        }
     }
 
 
@@ -56,4 +76,7 @@ public class BuyPanelManager : MonoBehaviour {
         else
             Debug.Log("Posiadasz już piekarnię w tej dzielnicy!");
     }
+
+
+
 }

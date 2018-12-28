@@ -89,4 +89,23 @@ public class BakeriesSystem : MonoBehaviour
         return false;
     }
 
+    public bool RemoveBakery(string hoodName) //usuwa konkretną piekarnie
+    {
+        if (_bakeries.Count > 1)
+        {
+            foreach (Bakery element in _bakeries)
+            {
+                if (element.hoodName == hoodName)
+                {
+                    element.DestroyBakery();
+                    _bakeries.Remove(element);
+                    return true;
+                }
+            }
+            return true;
+        }
+        else
+            return false;
+    }
+
 }
