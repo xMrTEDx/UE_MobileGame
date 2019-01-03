@@ -39,7 +39,12 @@ public class BuyPanelManager : MonoBehaviour {
             {
                 Debug.Log("Nie można sprzedać ostatniej piekarni mistrzu");
                 // poinformuj gracza
+                Prompt.Instance.ShowPrompt("Nie można sprzedać ostatniej piekarni");
             }
+        }
+        else
+        {
+            Prompt.Instance.ShowPrompt("Nie posiadasz żadnej piekarni w tej dzielnicy");
         }
     }
 
@@ -74,7 +79,11 @@ public class BuyPanelManager : MonoBehaviour {
 
         }
         else
-            Debug.Log("Posiadasz już piekarnię w tej dzielnicy!");
+            {
+                Debug.Log("Posiadasz już piekarnię w tej dzielnicy!");
+                Prompt.Instance.ShowPrompt("Możesz posiadać tylko jedną piekarnię w każdej dzielnicy!");
+            }
+
     }
 
 

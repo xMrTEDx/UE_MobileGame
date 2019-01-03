@@ -38,6 +38,7 @@ public class BakeriesUpgradesWindow : MonoBehaviour
                 {
                 //wyświetl użytkownikowi że nie ma hajsu
                 Debug.Log("Nie masz kasy na to ulepszenie");
+                Prompt.Instance.ShowPrompt("Nie masz wystarczającej ilości gotowki na zakup tego ulepszenia");
                 }
             });
 

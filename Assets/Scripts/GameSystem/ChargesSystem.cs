@@ -25,23 +25,25 @@ public class ChargesSystem : MonoBehaviour
         {
             case 1:
                 Debug.Log("Opłata za czynsz: " + ClickerGame.Instance.BakeriesSystem.Bakeries.Count * 2000);
-
+                Prompt.Instance.ShowPrompt("Pobrano oplate za czynsz");
                 break;
             case 10:
                 ClickerGame.Instance.EmployeesSystem.ImproveExperienceProduktivity();
                 contract.calculateCosts();
                 charges = contract.OverallCosts * ClickerGame.Instance.EmployeesSystem.NumberOfEmployees;
                 Debug.Log("Wypłaty pracownicze: " + charges);
+                Prompt.Instance.ShowPrompt("Pobrano oplaty pracownicze");
                 break;
             case 15:
                 charges = PayInstallments();
                 Debug.Log("Raty pożyczek: " + charges);
+                if (credits.Count > 0) Prompt.Instance.ShowPrompt("Splacono ratę kredytu");
                 break;
             default:
                 break;
         }
 
-        if(charges != 0) ClickerGame.Instance.PointsSystem.RemovePoints(charges);
+        if (charges != 0) ClickerGame.Instance.PointsSystem.RemovePoints(charges);
         return charges;
     }
 
@@ -51,11 +53,13 @@ public class ChargesSystem : MonoBehaviour
         {
             ClickerGame.Instance.PointsSystem.AddPoints(moneyToGet);
             credits.Add(new Credit(moneyToGet, installments));
+            Prompt.Instance.ShowPrompt("Wziąleś pożyczkę.");
             return true;
         }
         else
         {
             Debug.Log("Gdzie tam biedaku, spłać poprzednie kredyty!");
+            Prompt.Instance.ShowPrompt("Nie możesz wziąć nowej pożyczki. Splać najpierw poprzednie.");
             return false;
         }
     }
@@ -70,7 +74,7 @@ public class ChargesSystem : MonoBehaviour
         }
         for (int i = 0; i < credits.Count; i++)
         {
-            if(credits[i].numberOfInstallments == 0)
+            if (credits[i].numberOfInstallments == 0)
             {
                 credits.RemoveAt(i);
                 i--;
@@ -82,7 +86,7 @@ public class ChargesSystem : MonoBehaviour
     public float PayAllInstallments()
     {
         float money = 0;
-        foreach(Credit c in credits)
+        foreach (Credit c in credits)
         {
             money += (float)(c.numberOfInstallments * 0.9) * c.installment;
         }
@@ -91,7 +95,7 @@ public class ChargesSystem : MonoBehaviour
             credits.Remove(c);
         }
 
-        if(money > ClickerGame.Instance.PointsSystem.GamePoints)
+        if (money > ClickerGame.Instance.PointsSystem.GamePoints)
         {
             money = 0;
             Debug.Log("Nie masz tyle pieniędzy");

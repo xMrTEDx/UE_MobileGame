@@ -16,6 +16,7 @@ public class BakeriesModifier : MonoBehaviour
 		{
 			Debug.Log("Nie masz kasy na to ziomek");
 			//poinformuj gracza ze nie ma siana
+            Prompt.Instance.ShowPrompt("Nie masz wystarczającej ilości gotowki na zakup nowej piekarni");
 		}
     }
     public void SellBakery()
@@ -29,6 +30,7 @@ public class BakeriesModifier : MonoBehaviour
 		{
 			Debug.Log("Nie można sprzedać ostatniej piekarni mistrzu");
 			// poinformuj gracza
+            Prompt.Instance.ShowPrompt("Nie można sprzedać ostatniej piekarni");
 		}
     }
 

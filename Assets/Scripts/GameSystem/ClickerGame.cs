@@ -172,8 +172,8 @@ public class ClickerGame : Singleton<ClickerGame>
     private void DoClockActions() //metody wykonywane co kazdy cykl zegara
     {
         pointsSystem.AddAutoPoints();
-        ClickerGame.Instance.DataSystem.ChangeDay();
-        ClickerGame.Instance.ChargesSystem.TakeCharges(); //wazna kolejnosc! najpierw zmiana dnia, a pozniej pobieranie oplat
+        dataSystem.ChangeDay();
+        chargesSystem.TakeCharges(); //wazna kolejnosc! najpierw zmiana dnia, a pozniej pobieranie oplat
     }
     #endregion
 
