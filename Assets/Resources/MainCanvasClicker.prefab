@@ -5831,6 +5831,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87dc690078c6d70409023952e36a0cfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mapWindow: {fileID: 1873716501074954}
+  bakeriesWindow: {fileID: 1914113387628420}
+  EmployeesWindow: {fileID: 1170931096054876}
+  statsWindow: {fileID: 1004172759408078}
   bakeriesParent: {fileID: 224977852051274602}
   employeesParent: {fileID: 224545067752816064}
   dataText: {fileID: 114936258355555250}

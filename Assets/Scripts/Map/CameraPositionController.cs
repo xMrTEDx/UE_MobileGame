@@ -9,6 +9,10 @@ public class CameraPositionController : MonoBehaviour {
 	[Range(1,10)]
 	public float cameraViewScaller = 3f;
 	void Update () {
+		SetCameraParameters();
+	}
+	public void SetCameraParameters()
+	{
 		Camera.main.transform.position = transform.position;
 		Camera.main.GetComponent<Camera>().orthographicSize = Screen.currentResolution.height*Screen.currentResolution.height/(1000*cameraViewScaller);
 	}
