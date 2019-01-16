@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MENU : MonoBehaviour {
+public class MENU : MonoBehaviour
+{
 
     public void StartGry()
     {
@@ -12,6 +13,12 @@ public class MENU : MonoBehaviour {
 
     public void Wyjscie()
     {
-        Application.Quit();
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#elif UNITY_WEBPLAYER
+	    Application.OpenURL(webplayerQuitURL);
+#else
+	    Application.Quit();
+#endif
     }
 }
