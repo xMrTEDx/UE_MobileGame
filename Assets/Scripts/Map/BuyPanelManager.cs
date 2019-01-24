@@ -19,7 +19,7 @@ public class BuyPanelManager : MonoBehaviour {
         if (buyPanel.activeSelf == false)
             buyPanel.SetActive(true);
         selectedDistrict = district;
-        selectedDistrictText.text = "Selected district: " + selectedDistrict.name;
+        selectedDistrictText.text = "Wybrana dzielnica: " + selectedDistrict.name;
     }
 
     public void RemoveBakeryFromHood()
@@ -84,6 +84,11 @@ public class BuyPanelManager : MonoBehaviour {
                 Prompt.Instance.ShowPrompt("Możesz posiadać tylko jedną piekarnię w każdej dzielnicy!");
             }
 
+    }
+    public void BuyBakeryInHood(GameObject district)
+    {
+        selectedDistrict = district;
+        BuyBakeryInHood();
     }
 
 

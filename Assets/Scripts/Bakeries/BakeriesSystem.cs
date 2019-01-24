@@ -36,7 +36,7 @@ public class BakeriesSystem : MonoBehaviour
     }
     public void Init() //uzywac zamiast start
     {
-        AddBakery();
+        //AddBakery();
     }
     public void Ulepsz(BakeryUpgrade upgrade)
     {

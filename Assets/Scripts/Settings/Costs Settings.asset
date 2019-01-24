@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Name: Costs Settings
   m_EditorClassIdentifier: 
   newBakeryCost: 100
-  randomBakeryCost: 0.2
+  randomBakeryCost: 0
   bakeryRent: 100
-  randomBakeryRent: 0.2
+  randomBakeryRent: 0
   newEmployeeCost: 10
-  randomEmployeeCost: 0.2
+  randomEmployeeCost: 0
   employeeSalary: 10
-  randomEmployeeSalary: 0.2
+  randomEmployeeSalary: 0

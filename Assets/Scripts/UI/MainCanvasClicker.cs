@@ -27,5 +27,6 @@ public class MainCanvasClicker : MonoBehaviour
         bakeriesUpgradesWindow.Init();
         employeesUpgradesWindow.Init();
         mapWindow.GetComponent<CameraPositionController>().SetCameraParameters();
+        mapWindow.GetComponent<MapWindow>().Init();
     }
 }
